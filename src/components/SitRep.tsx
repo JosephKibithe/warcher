@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, useMemo } from "react";
+import { useState, useRef, useEffect } from "react";
 import {
   FileText,
   AlertTriangle,
@@ -9,12 +9,13 @@ import {
   MessageSquare,
   RotateCcw,
 } from "lucide-react";
-import { generateSitRep, type Article } from "../services/api";
+import { type Article, generateSitRep as generateLocalSitRep } from "../services/api";
 import {
   chatWithSitrep,
-  isGeminiConfigured,
+  isGrokConfigured as isAIConfigured,
   resetChat,
-} from "../services/gemini";
+  generateAISitRep,
+} from "../services/grok";
 
 interface SitRepProps {
   articles: Article[];
@@ -34,7 +35,28 @@ export function SitRep({ articles }: SitRepProps) {
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const sitrep = useMemo(() => generateSitRep(articles), [articles]);
+  const [sitrep, setSitrep] = useState<string>("");
+  const [isGeneratingSitrep, setIsGeneratingSitrep] = useState(true);
+
+  useEffect(() => {
+    if (articles.length === 0) return;
+    
+    setSitrep(generateLocalSitRep(articles));
+    setIsGeneratingSitrep(false);
+  }, [articles]);
+
+  const handleGenerateAIBriefing = async () => {
+    setIsGeneratingSitrep(true);
+    try {
+      const res = await generateAISitRep(articles);
+      setSitrep(res);
+    } catch (error) {
+      console.error("Failed to generate SITREP:", error);
+      setSitrep("COMMS ERROR: Failed to generate SITREP.");
+    } finally {
+      setIsGeneratingSitrep(false);
+    }
+  };
 
   // Calculate escalation level
   const highPriorityCount = articles.filter(
@@ -64,13 +86,13 @@ export function SitRep({ articles }: SitRepProps) {
   // Welcome message when switching to chat
   useEffect(() => {
     if (activeTab === "chat" && messages.length === 0) {
-      const geminiReady = isGeminiConfigured();
+      const aiReady = isAIConfigured();
       setMessages([
         {
           role: "assistant",
-          content: geminiReady
+          content: aiReady
             ? "WARCHER AI online. I have access to the current intelligence feed. Ask me about ongoing conflicts, military operations, escalation risks, or request analysis on specific developments."
-            : "⚠️ COMMS OFFLINE: No Gemini API key detected. Add VITE_GEMINI_API_KEY to your .env.local file to enable AI analysis. Get a free key at aistudio.google.com/apikey",
+            : "⚠️ COMMS OFFLINE: No xAI API key detected. Add VITE_XAI_API_KEY to your .env.local file to enable AI analysis. Get an API key at console.x.ai",
           timestamp: new Date(),
         },
       ]);
@@ -208,6 +230,19 @@ export function SitRep({ articles }: SitRepProps) {
       {/* Briefing Tab */}
       {activeTab === "briefing" && (
         <div className="p-4 space-y-4">
+          {/* Action Row */}
+          <div className="flex justify-between items-center bg-[#1a1a24] p-3 rounded border border-gray-800">
+            <span className="text-xs text-gray-400 font-bold uppercase tracking-wider">Analysis Mode</span>
+            <button
+              onClick={handleGenerateAIBriefing}
+              disabled={isGeneratingSitrep}
+              className="flex items-center gap-1.5 px-3 py-1.5 bg-emerald-500/10 text-emerald-400 text-[10px] font-bold tracking-wider rounded border border-emerald-500/30 hover:bg-emerald-500/20 disabled:opacity-50 transition-colors"
+            >
+              <Bot className="w-3 h-3" />
+              {isGeneratingSitrep ? "GENERATING..." : "ENHANCE WITH AI"}
+            </button>
+          </div>
+
           {/* Escalation Indicator */}
           <div className="flex items-center justify-between p-3 bg-[#1a1a24] rounded border border-gray-800">
             <div className="flex items-center gap-2">
@@ -225,35 +260,44 @@ export function SitRep({ articles }: SitRepProps) {
           </div>
 
           {/* SITREP Content */}
-          <div className="space-y-2 text-xs leading-relaxed text-gray-300 max-h-64 overflow-y-auto">
-            {lines.map((line, index) => {
-              if (line.startsWith("Date:")) {
-                return (
-                  <p key={index} className="text-gray-500 font-mono">
-                    {line}
-                  </p>
-                );
-              }
-              if (line.match(/^\d+\./)) {
-                return (
-                  <h3 key={index} className="text-cyan-400 font-bold mt-3">
-                    {line}
-                  </h3>
-                );
-              }
-              if (line.startsWith("-")) {
-                return (
-                  <p key={index} className="pl-4 text-gray-400">
-                    {line}
-                  </p>
-                );
-              }
-              return (
-                <p key={index} className={line.trim() ? "" : "h-2"}>
-                  {line}
+          <div className="space-y-4 text-xs leading-relaxed text-gray-300 max-h-64 overflow-y-auto">
+            {isGeneratingSitrep ? (
+              <div className="flex flex-col items-center justify-center p-8 space-y-4 text-gray-500">
+                <Loader2 className="w-8 h-8 animate-spin text-cyan-500" />
+                <p className="animate-pulse tracking-widest text-[10px] uppercase font-bold text-cyan-500/70">
+                  Generating AI SITREP...
                 </p>
-              );
-            })}
+              </div>
+            ) : (
+              lines.map((line, index) => {
+                // If it's a line with ** bold **, render it nicely
+                // Simplistic markdown parsing for bold
+                const formattedLine = line.split("**").map((part, i) => 
+                  i % 2 === 1 ? <span key={i} className="text-gray-100 font-bold">{part}</span> : part
+                );
+
+                if (line.match(/^\d+\./)) {
+                  return (
+                    <h3 key={index} className="text-cyan-400 font-bold mt-4 mb-2 text-sm">
+                      {formattedLine}
+                    </h3>
+                  );
+                }
+                if (line.startsWith("-")) {
+                  return (
+                    <p key={index} className="pl-4 text-gray-400 my-1 flex">
+                      <span className="text-cyan-500 mr-2">•</span>
+                      <span>{formattedLine}</span>
+                    </p>
+                  );
+                }
+                return (
+                  <p key={index} className={line.trim() ? "my-2" : "h-2"}>
+                    {formattedLine}
+                  </p>
+                );
+              })
+            )}
           </div>
         </div>
       )}
@@ -334,7 +378,7 @@ export function SitRep({ articles }: SitRepProps) {
               </button>
             </div>
             <p className="text-[9px] text-gray-600 mt-1.5 text-center">
-              Powered by Gemini · War & conflict analysis only
+              Powered by xAI Grok · War & conflict analysis only
             </p>
           </div>
         </div>

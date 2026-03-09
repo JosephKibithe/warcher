@@ -55,7 +55,7 @@ function LayerToggles({ activeLayers, onToggle }: LayerToggleProps) {
     { key: 'bases', label: 'BASES', icon: <MapPin className="w-3 h-3" />, color: 'text-blue-400' },
     { key: 'forces', label: 'FORCES', icon: <Users className="w-3 h-3" />, color: 'text-green-400' },
     { key: 'strikes', label: 'STRIKES', icon: <Crosshair className="w-3 h-3" />, color: 'text-red-400' },
-    { key: 'naval', label: 'NAVAL', icon: <Anchor className="w-3 h-3" />, color: 'text-cyan-400' },
+    { key: 'naval', label: 'MARITIME', icon: <Anchor className="w-3 h-3" />, color: 'text-cyan-400' },
     { key: 'proxy', label: 'PROXY', icon: <AlertTriangle className="w-3 h-3" />, color: 'text-yellow-400' },
   ]
 
@@ -88,7 +88,10 @@ const CONFLICT_ZONES = [
   { name: 'Yemen Conflict Zone', lat: 15.5527, lng: 48.5164, type: 'proxy', radius: 100000 },
   { name: 'Syria Active Zone', lat: 35.0000, lng: 38.0000, type: 'conflict', radius: 80000 },
   { name: 'Persian Gulf', lat: 26.0000, lng: 52.0000, type: 'naval', radius: 120000 },
-  { name: 'Strait of Hormuz', lat: 26.5000, lng: 56.5000, type: 'naval', radius: 50000 },
+  { name: 'Strait of Hormuz (Chokepoint)', lat: 26.5000, lng: 56.5000, type: 'naval', radius: 50000 },
+  { name: 'Bab el-Mandeb (Chokepoint)', lat: 12.5833, lng: 43.3333, type: 'naval', radius: 45000 },
+  { name: 'Suez Canal', lat: 30.5852, lng: 32.2654, type: 'naval', radius: 30000 },
+  { name: 'Gulf of Aden', lat: 12.0000, lng: 48.0000, type: 'naval', radius: 120000 },
 ]
 
 const MILITARY_BASES = [
@@ -220,7 +223,7 @@ export function Map({ articles }: MapProps) {
             <Popup>
               <div className="text-xs">
                 <strong className="text-cyan-500">{zone.name}</strong>
-                <p className="text-gray-400">Naval Operations Area</p>
+                <p className="text-gray-400">Maritime Operations Area</p>
               </div>
             </Popup>
           </Circle>
@@ -297,7 +300,7 @@ export function Map({ articles }: MapProps) {
           </div>
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 bg-cyan-500 rounded-full" />
-            <span className="text-gray-400">Naval/Choke</span>
+            <span className="text-gray-400">Maritime/Choke</span>
           </div>
         </div>
       </div>
