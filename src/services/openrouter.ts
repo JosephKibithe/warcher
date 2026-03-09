@@ -1,5 +1,14 @@
 import type { Article } from "./api";
 
+export const FREE_MODELS = [
+  { id: "google/gemini-2.5-pro-exp-03-25:free", name: "Gemini 2.5 Pro Exp" },
+  { id: "meta-llama/llama-3.3-70b-instruct:free", name: "Llama 3.3 70B" },
+  { id: "deepseek/deepseek-r1:free", name: "DeepSeek R1" },
+  { id: "mistralai/mistral-7b-instruct:free", name: "Mistral 7B" },
+];
+
+export const DEFAULT_MODEL = FREE_MODELS[0].id;
+
 const SYSTEM_PROMPT = `You are WARCHER AI, a military intelligence analyst and OSINT specialist embedded in a real-time Middle East conflict monitoring dashboard. Your role:
 
 CORE MANDATE:
@@ -42,29 +51,31 @@ Here are the articles:
 
 let chatHistory: { role: string; content: string }[] = [];
 
-export function isGrokConfigured(): boolean {
-  return !!import.meta.env.VITE_XAI_API_KEY;
+export function isOpenRouterConfigured(): boolean {
+  return !!import.meta.env.VITE_OPENROUTER_API_KEY;
 }
 
 export function resetChat(): void {
   chatHistory = [];
 }
 
-async function callGrokAPI(messages: { role: string; content: string }[]) {
-  const apiKey = import.meta.env.VITE_XAI_API_KEY;
+async function callOpenRouterAPI(messages: { role: string; content: string }[], model: string) {
+  const apiKey = import.meta.env.VITE_OPENROUTER_API_KEY;
   if (!apiKey) {
-    throw new Error("COMMS ERROR: xAI API key not configured. Add VITE_XAI_API_KEY to your .env.local file to enable AI analysis.");
+    throw new Error("COMMS ERROR: OpenRouter API key not configured. Add VITE_OPENROUTER_API_KEY to your .env.local file to enable AI analysis.");
   }
 
-  const response = await fetch("https://api.x.ai/v1/chat/completions", {
+  const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${apiKey}`,
+      "HTTP-Referer": window.location.origin || "http://localhost:8081",
+      "X-OpenRouter-Title": "WARCHER",
     },
     body: JSON.stringify({
       messages,
-      model: "grok-beta",
+      model,
       stream: false,
       temperature: 0.7,
     }),
@@ -79,7 +90,7 @@ async function callGrokAPI(messages: { role: string; content: string }[]) {
   return data.choices[0].message.content;
 }
 
-export async function generateAISitRep(articles: Article[]): Promise<string> {
+export async function generateAISitRep(articles: Article[], model: string = DEFAULT_MODEL): Promise<string> {
   const articleContext = articles
     .slice(0, 15)
     .map(
@@ -91,13 +102,13 @@ export async function generateAISitRep(articles: Article[]): Promise<string> {
   const prompt = `${SITREP_PROMPT}\n${articleContext}`;
 
   try {
-    const response = await callGrokAPI([
+    const response = await callOpenRouterAPI([
       { role: "system", content: SYSTEM_PROMPT },
       { role: "user", content: prompt },
-    ]);
+    ], model);
     return response;
   } catch (error: unknown) {
-    console.error("Grok API error:", error);
+    console.error("OpenRouter API error:", error);
     const errMsg = error instanceof Error ? error.message : "Unknown error";
     return `COMMS ERROR: Failed to generate SITREP. ${errMsg}`;
   }
@@ -106,6 +117,7 @@ export async function generateAISitRep(articles: Article[]): Promise<string> {
 export async function chatWithSitrep(
   message: string,
   articles: Article[],
+  model: string = DEFAULT_MODEL
 ): Promise<string> {
   // Build context from current articles
   const articleContext = articles
@@ -123,11 +135,11 @@ export async function chatWithSitrep(
     const currentMessage = { role: "user", content: contextMessage };
     
     // Call API with history
-    const responseText = await callGrokAPI([
+    const responseText = await callOpenRouterAPI([
       { role: "system", content: SYSTEM_PROMPT },
       ...chatHistory,
       currentMessage,
-    ]);
+    ], model);
 
     // Update chat history with just the original message (without the huge context) to save tokens
     chatHistory.push(
@@ -142,7 +154,7 @@ export async function chatWithSitrep(
 
     return responseText;
   } catch (error: unknown) {
-    console.error("Grok API error:", error);
+    console.error("OpenRouter API error:", error);
     const errMsg = error instanceof Error ? error.message : "Unknown error";
     return `COMMS ERROR: ${errMsg}`;
   }

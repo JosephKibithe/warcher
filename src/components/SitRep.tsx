@@ -12,10 +12,12 @@ import {
 import { type Article, generateSitRep as generateLocalSitRep } from "../services/api";
 import {
   chatWithSitrep,
-  isGrokConfigured as isAIConfigured,
+  isOpenRouterConfigured as isAIConfigured,
   resetChat,
   generateAISitRep,
-} from "../services/grok";
+  FREE_MODELS,
+  DEFAULT_MODEL,
+} from "../services/openrouter";
 
 interface SitRepProps {
   articles: Article[];
@@ -30,6 +32,7 @@ interface ChatMessage {
 export function SitRep({ articles }: SitRepProps) {
   const [activeTab, setActiveTab] = useState<"briefing" | "chat">("briefing");
   const [messages, setMessages] = useState<ChatMessage[]>([]);
+  const [selectedModel, setSelectedModel] = useState(DEFAULT_MODEL);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -48,7 +51,7 @@ export function SitRep({ articles }: SitRepProps) {
   const handleGenerateAIBriefing = async () => {
     setIsGeneratingSitrep(true);
     try {
-      const res = await generateAISitRep(articles);
+      const res = await generateAISitRep(articles, selectedModel);
       setSitrep(res);
     } catch (error) {
       console.error("Failed to generate SITREP:", error);
@@ -92,7 +95,7 @@ export function SitRep({ articles }: SitRepProps) {
           role: "assistant",
           content: aiReady
             ? "WARCHER AI online. I have access to the current intelligence feed. Ask me about ongoing conflicts, military operations, escalation risks, or request analysis on specific developments."
-            : "⚠️ COMMS OFFLINE: No xAI API key detected. Add VITE_XAI_API_KEY to your .env.local file to enable AI analysis. Get an API key at console.x.ai",
+            : "⚠️ COMMS OFFLINE: No OpenRouter API key detected. Add VITE_OPENROUTER_API_KEY to your .env.local file to enable AI analysis.",
           timestamp: new Date(),
         },
       ]);
@@ -113,7 +116,7 @@ export function SitRep({ articles }: SitRepProps) {
     setIsLoading(true);
 
     try {
-      const response = await chatWithSitrep(userMessage.content, articles);
+      const response = await chatWithSitrep(userMessage.content, articles, selectedModel);
       setMessages((prev) => [
         ...prev,
         {
@@ -173,6 +176,17 @@ export function SitRep({ articles }: SitRepProps) {
             </h2>
           </div>
           <div className="flex items-center gap-2">
+            <select
+              value={selectedModel}
+              onChange={(e) => setSelectedModel(e.target.value)}
+              className="bg-[#1a1a24] text-[10px] font-bold tracking-wider text-gray-300 border border-gray-700 rounded px-2 py-1 outline-none focus:border-cyan-500 cursor-pointer"
+            >
+              {FREE_MODELS.map((m) => (
+                <option key={m.id} value={m.id}>
+                  {m.name}
+                </option>
+              ))}
+            </select>
             {activeTab === "chat" && (
               <button
                 onClick={handleReset}
@@ -378,7 +392,7 @@ export function SitRep({ articles }: SitRepProps) {
               </button>
             </div>
             <p className="text-[9px] text-gray-600 mt-1.5 text-center">
-              Powered by xAI Grok · War & conflict analysis only
+              Powered by OpenRouter · War & conflict analysis only
             </p>
           </div>
         </div>

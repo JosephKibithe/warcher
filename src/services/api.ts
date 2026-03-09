@@ -25,11 +25,23 @@ export interface PriceData {
     price: number;
     change24h: number;
   };
+  sol: {
+    price: number;
+    change24h: number;
+  };
   gold: {
     price: number;
     change24h: number;
   };
+  silver: {
+    price: number;
+    change24h: number;
+  };
   oil: {
+    price: number;
+    change24h: number;
+  };
+  gas: {
     price: number;
     change24h: number;
   };
@@ -428,7 +440,7 @@ export async function fetchPrices(): Promise<PriceData> {
   try {
     // Fetch from CoinGecko API (free tier)
     const response = await axios.get(
-      "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum&vs_currencies=usd&include_24hr_change=true",
+      "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,solana&vs_currencies=usd&include_24hr_change=true",
     );
 
     const data = response.data;
@@ -442,13 +454,25 @@ export async function fetchPrices(): Promise<PriceData> {
         price: data.ethereum.usd,
         change24h: data.ethereum.usd_24h_change,
       },
+      sol: {
+        price: data.solana.usd,
+        change24h: data.solana.usd_24h_change,
+      },
       gold: {
         price: 2142.5, // Mock gold price (would need separate API)
         change24h: 0.8,
       },
+      silver: {
+        price: 24.50, // Mock silver price
+        change24h: 1.2,
+      },
       oil: {
         price: 82.45, // Mock oil price
         change24h: -1.2,
+      },
+      gas: {
+        price: 2.15, // Mock natural gas price
+        change24h: 3.4,
       },
     };
   } catch (error) {
@@ -457,8 +481,11 @@ export async function fetchPrices(): Promise<PriceData> {
     return {
       btc: { price: 73302.0, change24h: 7.32 },
       eth: { price: 2156.21, change24h: 8.84 },
+      sol: { price: 145.20, change24h: 5.12 },
       gold: { price: 2142.5, change24h: 0.8 },
+      silver: { price: 24.5, change24h: 1.2 },
       oil: { price: 82.45, change24h: -1.2 },
+      gas: { price: 2.15, change24h: 3.4 },
     };
   }
 }

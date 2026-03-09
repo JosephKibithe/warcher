@@ -30,6 +30,21 @@ export function Header({ articleCount, lastUpdate, loading }: HeaderProps) {
             </div>
           </div>
 
+          {/* Social Link */}
+          <div className="flex-1 flex justify-center">
+            <a
+              href="https://x.com/SerXbt"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-4 py-1.5 bg-[#1a1a24] border border-gray-700 hover:border-cyan-500 rounded-full text-xs text-gray-400 hover:text-cyan-400 font-bold tracking-widest transition-all shadow-md flex items-center gap-2"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true" className="w-3 h-3 fill-current">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+              </svg>
+              @SerXbt
+            </a>
+          </div>
+
           {/* Status Indicators */}
           <div className="flex flex-wrap items-center gap-4 text-xs">
             <div className="flex items-center gap-2 px-3 py-1.5 bg-green-500/10 border border-green-500/30 rounded">

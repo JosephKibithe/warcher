@@ -28,9 +28,12 @@ export function MarketTicker({ prices }: MarketTickerProps) {
     <div className="bg-[#0f0f14] border-b border-gray-800 h-12 flex items-center overflow-x-auto text-sm font-mono shrink-0 scrollbar-hide w-full shadow-lg z-10">
       <div className="flex items-center min-w-max h-full">
         {renderPrice('WTI CRUDE', prices.oil, '$', 2)}
+        {renderPrice('NAT GAS', prices.gas, '$', 3)}
         {renderPrice('GOLD', prices.gold, '$', 2)}
+        {renderPrice('SILVER', prices.silver, '$', 2)}
         {renderPrice('BTC', prices.btc, '$', 0)}
         {renderPrice('ETH', prices.eth, '$', 2)}
+        {renderPrice('SOL', prices.sol, '$', 2)}
       </div>
     </div>
   )
