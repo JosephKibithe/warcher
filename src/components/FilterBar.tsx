@@ -12,6 +12,9 @@ const filters: { key: FilterCategory; label: string; color: string }[] = [
   { key: 'DIPLOMATIC', label: 'DIPLOMATIC', color: 'bg-gray-500' },
   { key: 'PROXY', label: 'PROXY', color: 'bg-yellow-600' },
   { key: 'NUCLEAR', label: 'NUCLEAR', color: 'bg-purple-600' },
+  { key: 'CYBER', label: 'CYBER', color: 'bg-violet-700' },
+  { key: 'SANCTIONS', label: 'SANCTIONS', color: 'bg-pink-700' },
+  { key: 'ECON', label: 'ECON', color: 'bg-teal-700' },
 ]
 
 export function FilterBar({ activeFilter, onFilterChange }: FilterBarProps) {

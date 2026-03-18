@@ -1,4 +1,4 @@
-import { ExternalLink, Clock, Rss, MessageCircle } from "lucide-react";
+import { ExternalLink, Clock, Rss, MessageCircle, Globe, ShieldCheck } from "lucide-react";
 import type { Article } from "../services/api";
 import { formatDistanceToNow } from "date-fns";
 
@@ -19,6 +19,12 @@ function getCategoryBadgeClass(category: Article["category"]) {
       return "badge-proxy";
     case "NUCLEAR":
       return "badge-nuclear";
+    case "CYBER":
+      return "bg-violet-900/60 text-violet-300 border border-violet-700/40";
+    case "SANCTIONS":
+      return "bg-pink-900/50 text-pink-300 border border-pink-700/40";
+    case "ECON":
+      return "bg-teal-900/50 text-teal-300 border border-teal-700/40";
     default:
       return "bg-gray-700 text-gray-300";
   }
@@ -74,6 +80,8 @@ function SourceIcon({ sourceType }: { sourceType: Article["sourceType"] }) {
       );
     case "telegram":
       return <MessageCircle className="w-3 h-3 text-blue-400" />;
+    case "gdelt":
+      return <Globe className="w-3 h-3 text-emerald-400" />;
     default:
       return <Rss className="w-3 h-3 text-cyan-400" />;
   }
@@ -87,6 +95,8 @@ function getSourceTypeLabel(sourceType: Article["sourceType"]) {
       return "X";
     case "telegram":
       return "TG";
+    case "gdelt":
+      return "GDELT";
     default:
       return "RSS";
   }
@@ -159,7 +169,9 @@ export function NewsFeed({ articles, loading }: NewsFeedProps) {
             {articles.map((article) => (
               <article
                 key={article.id}
-                className="p-3 hover:bg-[#1a1a24] transition-colors group"
+                className={`p-3 hover:bg-[#1a1a24] transition-colors group ${
+                  article.corroborated ? 'border-l-2 border-emerald-500/60 bg-emerald-950/10' : ''
+                }`}
               >
                 <div className="flex items-start gap-3">
                   {getPriorityIndicator(article.priority)}
@@ -177,6 +189,12 @@ export function NewsFeed({ articles, loading }: NewsFeedProps) {
                     </a>
 
                     <div className="flex items-center gap-2 mt-2 flex-wrap">
+                      {article.corroborated && (
+                        <span className="flex items-center gap-1 text-[9px] px-1.5 py-0.5 rounded bg-emerald-900/50 text-emerald-400 border border-emerald-500/30 font-bold tracking-wider">
+                          <ShieldCheck className="w-2.5 h-2.5" />
+                          CORROBORATED
+                        </span>
+                      )}
                       <span className="text-xs text-gray-500 flex items-center gap-1">
                         <SourceIcon sourceType={article.sourceType} />
                         {article.source}

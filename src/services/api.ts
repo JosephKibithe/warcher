@@ -6,14 +6,15 @@ export interface Article {
   source: string;
   link: string;
   published: Date;
-  category: "CONFLICT" | "MILITARY" | "DIPLOMATIC" | "PROXY" | "NUCLEAR";
+  category: "CONFLICT" | "MILITARY" | "DIPLOMATIC" | "PROXY" | "NUCLEAR" | "ECON" | "SANCTIONS" | "CYBER";
   priority: "HIGH" | "MED" | "LOW";
-  sourceType: "rss" | "reddit" | "twitter" | "telegram";
+  sourceType: "rss" | "reddit" | "twitter" | "telegram" | "gdelt";
   location?: {
     lat: number;
     lng: number;
     name: string;
   };
+  corroborated?: boolean;
 }
 
 export interface PriceData {
@@ -109,12 +110,49 @@ const CATEGORY_KEYWORDS = {
     "atomic",
     "iran deal",
     " jcpoa",
+    "warhead",
+    "icbm",
+    "plutonium",
     "facility",
+  ],
+  CYBER: [
+    "cyberattack",
+    "cyber attack",
+    "hacker",
+    "ransomware",
+    "malware",
+    "breach",
+    "espionage",
+    "intelligence operation",
+    "disinformation",
+  ],
+  SANCTIONS: [
+    "sanction",
+    "embargo",
+    "ban",
+    "blacklist",
+    "ofac",
+    "tariff",
+    "trade restriction",
+    "export control",
+  ],
+  ECON: [
+    "economy",
+    "gdp",
+    "inflation",
+    "central bank",
+    "federal reserve",
+    "interest rate",
+    "oil price",
+    "energy crisis",
+    "supply chain",
+    "commodity",
   ],
 };
 
-// Location keywords with coordinates
+// Location keywords with coordinates (Middle East + Global hotspots)
 const LOCATION_MAP: Record<string, { lat: number; lng: number }> = {
+  // Middle East
   tehran: { lat: 35.6892, lng: 51.389 },
   "tel aviv": { lat: 32.0853, lng: 34.7818 },
   jerusalem: { lat: 31.7683, lng: 35.2137 },
@@ -177,12 +215,56 @@ const LOCATION_MAP: Record<string, { lat: number; lng: number }> = {
   taiz: { lat: 13.5773, lng: 44.0178 },
   marib: { lat: 15.4624, lng: 45.3258 },
   "al hudaydah": { lat: 14.7979, lng: 42.9545 },
+  // Africa
   "port sudan": { lat: 19.6167, lng: 37.2167 },
   khartoum: { lat: 15.5007, lng: 32.5599 },
   benghazi: { lat: 32.1167, lng: 20.0667 },
   misrata: { lat: 32.3754, lng: 15.0925 },
   zawiya: { lat: 32.7522, lng: 12.7278 },
   sabratha: { lat: 32.7933, lng: 12.4856 },
+  "addis ababa": { lat: 9.0054, lng: 38.7636 },
+  mogadishu: { lat: 2.0469, lng: 45.3182 },
+  bamako: { lat: 12.6392, lng: -8.0029 },
+  niamey: { lat: 13.5137, lng: 2.1098 },
+  ndjamena: { lat: 12.1048, lng: 15.0445 },
+  "n'djamena": { lat: 12.1048, lng: 15.0445 },
+  // Eastern Europe / Ukraine
+  kyiv: { lat: 50.4501, lng: 30.5234 },
+  kharkiv: { lat: 49.9935, lng: 36.2304 },
+  zaporizhzhia: { lat: 47.8388, lng: 35.1396 },
+  kherson: { lat: 46.6354, lng: 32.6169 },
+  donetsk: { lat: 48.015, lng: 37.8028 },
+  mariupol: { lat: 47.0956, lng: 37.5421 },
+  bakhmut: { lat: 48.5958, lng: 37.9983 },
+  odesa: { lat: 46.4825, lng: 30.7233 },
+  lviv: { lat: 49.8397, lng: 24.0297 },
+  crimea: { lat: 45.3375, lng: 34.1212 },
+  ukraine: { lat: 49.0275, lng: 31.4828 },
+  moscow: { lat: 55.7558, lng: 37.6173 },
+  "st. petersburg": { lat: 59.9343, lng: 30.3351 },
+  minsk: { lat: 53.9045, lng: 27.5615 },
+  // Asia-Pacific
+  taipei: { lat: 25.033, lng: 121.5654 },
+  taiwan: { lat: 23.6978, lng: 120.9605 },
+  beijing: { lat: 39.9042, lng: 116.4074 },
+  shanghai: { lat: 31.2304, lng: 121.4737 },
+  pyongyang: { lat: 39.0392, lng: 125.7625 },
+  seoul: { lat: 37.5665, lng: 126.978 },
+  tokyo: { lat: 35.6762, lng: 139.6503 },
+  "south china sea": { lat: 15.0, lng: 115.0 },
+  "taiwan strait": { lat: 24.5, lng: 119.5 },
+  myanmar: { lat: 19.7633, lng: 96.0785 },
+  yangon: { lat: 16.8409, lng: 96.1735 },
+  // South Asia
+  kabul: { lat: 34.5553, lng: 69.2075 },
+  islamabad: { lat: 33.6844, lng: 73.0479 },
+  lahore: { lat: 31.5204, lng: 74.3587 },
+  "new delhi": { lat: 28.6139, lng: 77.209 },
+  india: { lat: 20.5937, lng: 78.9629 },
+  pakistan: { lat: 30.3753, lng: 69.3451 },
+  // Latin America
+  caracas: { lat: 10.4806, lng: -66.9036 },
+  havana: { lat: 23.1136, lng: -82.3666 },
 };
 
 function categorizeArticle(title: string): Article["category"] {
@@ -332,20 +414,47 @@ async function fetchRedditNews(): Promise<Article[]> {
 // Removed duplicate SOURCE_URLS
 
 const RSS_FEEDS = [
+  // Major International Outlets
   { url: "https://feeds.bbci.co.uk/news/world/middle_east/rss.xml", source: "BBC", type: "rss" },
-  { url: "https://www.aljazeera.com/xml/rss/all.xml", source: "Al Jazeera", type: "rss" },
-  { url: "https://www.jpost.com/rss/rssfeedid_7", source: "Jerusalem Post", type: "rss" },
-  // WorldMonitor additions
   { url: "https://www.theguardian.com/world/middleeast/rss", source: "Guardian ME", type: "rss" },
   { url: "https://news.un.org/feed/subscribe/en/news/region/middle-east/feed/rss.xml", source: "UN News", type: "rss" },
   { url: "https://www.euronews.com/rss?level=theme&name=news", source: "EuroNews", type: "rss" },
+  { url: "https://rss.nytimes.com/services/xml/rss/nyt/MiddleEast.xml", source: "NYT Middle East", type: "rss" },
+  { url: "http://rss.cnn.com/rss/edition_meast.rss", source: "CNN Middle East", type: "rss" },
+  { url: "https://www.thecipherbrief.com/feed", source: "The Cipher Brief", type: "rss" },
+  { url: "https://www.defenseone.com/rss/all/", source: "Defense One", type: "rss" },
+  { url: "https://rsshub.app/reuters/world", source: "Reuters World", type: "rss" },
+  
+  // Regional Outlets
+  { url: "https://www.aljazeera.com/xml/rss/all.xml", source: "Al Jazeera", type: "rss" },
+  { url: "https://www.jpost.com/rss/rssfeedid_7", source: "Jerusalem Post", type: "rss" },
+  { url: "https://www.timesofisrael.com/feed/", source: "Times of Israel", type: "rss" },
+  { url: "https://www.ynetnews.com/Integration/StoryRss1854.xml", source: "Ynetnews", type: "rss" },
+  { url: "https://www.arabnews.com/cat/1/rss.xml", source: "Arab News", type: "rss" },
+  { url: "https://english.alarabiya.net/feed/news", source: "Al Arabiya", type: "rss" },
+  { url: "https://www.middleeasteye.net/rss", source: "Middle East Eye", type: "rss" },
+  { url: "https://www.dailysabah.com/rss", source: "Daily Sabah", type: "rss" },
+  { url: "https://www.aa.com.tr/en/rss/default?cat=middle-east", source: "Anadolu Agency", type: "rss" },
+  { url: "https://en.irna.ir/rss", source: "IRNA", type: "rss" },
+  
   // Telegram
   { url: "https://rsshub.app/telegram/channel/Middle_East_Spectator", source: "Middle_East_Spectator", type: "telegram" },
   { url: "https://rsshub.app/telegram/channel/Suriyak_maps", source: "Suriyak_maps", type: "telegram" },
+  { url: "https://rsshub.app/telegram/channel/warmonitors", source: "warmonitors", type: "telegram" },
+  { url: "https://rsshub.app/telegram/channel/Faytuks", source: "Faytuks", type: "telegram" },
+  { url: "https://rsshub.app/telegram/channel/BellumActaNews", source: "Bellum Acta News", type: "telegram" },
+  
   // Twitter via RSSHub
   { url: "https://rsshub.app/twitter/user/OSINTdefender", source: "@OSINTdefender", type: "twitter" },
   { url: "https://rsshub.app/twitter/user/IntelCrab", source: "@IntelCrab", type: "twitter" },
-  { url: "https://rsshub.app/twitter/user/clashreport", source: "@clashreport", type: "twitter" }
+  { url: "https://rsshub.app/twitter/user/clashreport", source: "@clashreport", type: "twitter" },
+  { url: "https://rsshub.app/twitter/user/ELINTNews", source: "@ELINTNews", type: "twitter" },
+  { url: "https://rsshub.app/twitter/user/AuroraIntel", source: "@AuroraIntel", type: "twitter" },
+  { url: "https://rsshub.app/twitter/user/Faytuks", source: "@Faytuks", type: "twitter" },
+  { url: "https://rsshub.app/twitter/user/Charles_Lister", source: "@Charles_Lister", type: "twitter" },
+  { url: "https://rsshub.app/twitter/user/ragipsoylu", source: "@ragipsoylu", type: "twitter" },
+  { url: "https://rsshub.app/twitter/user/manniefabian", source: "@manniefabian", type: "twitter" },
+  { url: "https://rsshub.app/twitter/user/JoeTruzman", source: "@JoeTruzman", type: "twitter" }
 ];
 
 async function fetchRealRSSFeeds(): Promise<Article[]> {
@@ -354,74 +463,198 @@ async function fetchRealRSSFeeds(): Promise<Article[]> {
   // rss2json is highly reliable for client-side RSS fetching and avoids strict CORS
   const RSS2JSON_API = "https://api.rss2json.com/v1/api.json?rss_url=";
 
-  const fetchPromises = RSS_FEEDS.map(async (feed) => {
-    try {
-      const response = await axios.get(RSS2JSON_API + encodeURIComponent(feed.url), { 
-        timeout: 10000 
-      });
-      
-      const items = response.data?.items || [];
-      
-      for (const item of items.slice(0, 15)) {
-        const title = item.title || "";
-        const link = item.link || "";
-        const description = item.description || item.content || "";
-        const pubDate = item.pubDate || "";
+  // Process in batches to avoid rate limits on the free rss2json / rsshub APIs
+  const BATCH_SIZE = 5;
+  for (let i = 0; i < RSS_FEEDS.length; i += BATCH_SIZE) {
+    const batch = RSS_FEEDS.slice(i, i + BATCH_SIZE);
+    
+    await Promise.all(batch.map(async (feed) => {
+      try {
+        const cacheBuster = `&_cb=${Math.floor(Date.now() / (1000 * 60 * 15))}`; // changes every 15 minutes to bypass strict caches but avoid rate limits
+        const targetUrl = feed.url + (feed.url.includes("?") ? "" : "?") + cacheBuster;
         
-        if (!title || !link) continue;
-        
-        let publishedDate = new Date();
-        if (pubDate) {
-          publishedDate = new Date(pubDate);
-        }
-        
-        const lowerTitle = title.toLowerCase();
-        let isRelevant = true;
-        
-        if (feed.type === "rss") {
-          isRelevant = ME_KEYWORDS.some((kw) => 
-            lowerTitle.includes(kw) || 
-            description.toLowerCase().includes(kw)
-          );
-        }
-        
-        if (!isRelevant) continue;
-
-        articles.push({
-          id: `rss-${btoa(link || title).substring(0, 10)}`,
-          title: title,
-          source: feed.source,
-          link: link,
-          published: publishedDate,
-          category: categorizeArticle(title),
-          priority: determinePriority(title),
-          sourceType: feed.type as Article["sourceType"],
-          location: extractLocation(title),
+        const response = await axios.get(RSS2JSON_API + encodeURIComponent(targetUrl), { 
+          timeout: 10000 
         });
-      }
-    } catch (error) {
-      console.warn(`Failed to fetch RSS for ${feed.source}:`, error);
-    }
-  });
+        
+        const items = response.data?.items || [];
+        
+        for (const item of items.slice(0, 15)) {
+          const title = item.title || "";
+          const link = item.link || "";
+          const description = item.description || item.content || "";
+          const pubDate = item.pubDate || "";
+          
+          if (!title || !link) continue;
+          
+          let publishedDate = new Date(0); // default to old date so it doesn't float to top
+          if (pubDate) {
+            const parsed = new Date(pubDate);
+            if (!isNaN(parsed.getTime())) {
+              publishedDate = parsed;
+            }
+          }
+          
+          const lowerTitle = title.toLowerCase();
+          let isRelevant = true;
+          
+          if (feed.type === "rss") {
+            isRelevant = ME_KEYWORDS.some((kw) => 
+              lowerTitle.includes(kw) || 
+              description.toLowerCase().includes(kw)
+            );
+          }
+          
+          if (!isRelevant) continue;
 
-  await Promise.all(fetchPromises);
+          articles.push({
+            id: `rss-${btoa(link || title).substring(0, 10)}`,
+            title: title,
+            source: feed.source,
+            link: link,
+            published: publishedDate,
+            category: categorizeArticle(title),
+            priority: determinePriority(title),
+            sourceType: feed.type as Article["sourceType"],
+            location: extractLocation(title),
+          });
+        }
+      } catch (error) {
+        console.warn(`Failed to fetch RSS for ${feed.source}:`, error);
+      }
+    }));
+    
+    // Slight delay between batches (if not the last batch)
+    if (i + BATCH_SIZE < RSS_FEEDS.length) {
+      await new Promise(resolve => setTimeout(resolve, 1000));
+    }
+  }
   return articles;
 }
 
+// ── GDELT Global Conflict Events (no API key needed) ──────────────────────────
+async function fetchGDELT(): Promise<Article[]> {
+  const articles: Article[] = [];
+  try {
+    const query = encodeURIComponent(
+      "(war OR conflict OR strike OR attack OR military OR nuclear OR sanction OR cyberattack)"
+    );
+    const url =
+      `https://api.gdeltproject.org/api/v2/doc/doc?query=${query}&mode=artlist&maxrecords=25&format=json&sort=DateDesc&timespan=6h`;
+
+    const response = await axios.get(url, { timeout: 8000 });
+    const items: Array<{
+      url?: string;
+      title?: string;
+      seendate?: string;
+      sourcecountry?: string;
+      domain?: string;
+      language?: string;
+    }> = response.data?.articles || [];
+
+    for (const item of items) {
+      if (!item.url || !item.title) continue;
+      if (item.language && item.language !== "English") continue;
+
+      const title = item.title;
+      const published = item.seendate
+        ? new Date(
+            item.seendate.replace(
+              /(\d{4})(\d{2})(\d{2})T(\d{2})(\d{2})(\d{2})Z/,
+              "$1-$2-$3T$4:$5:$6Z"
+            )
+          )
+        : new Date();
+
+      articles.push({
+        id: `gdelt-${btoa(item.url).substring(0, 12)}`,
+        title,
+        source: item.domain || "GDELT",
+        link: item.url,
+        published: isNaN(published.getTime()) ? new Date() : published,
+        category: categorizeArticle(title),
+        priority: determinePriority(title),
+        sourceType: "gdelt",
+        location: extractLocation(title),
+      });
+    }
+  } catch (error) {
+    console.warn("Failed to fetch GDELT:", error);
+  }
+  return articles;
+}
+
+// ── Cross-source corroboration ─────────────────────────────────────────────────
+// Tags articles as corroborated when 3+ distinct sources reference the same
+// location or named entity within a 90-minute window.
+function detectCrossSourceSignals(articles: Article[]): Article[] {
+  const WINDOW_MS = 90 * 60 * 1000; // 90 min
+  const MIN_SOURCES = 3;
+
+  // Build a map: locationName → { sourceNames, articleIds }
+  const locationSources: Record<string, { sources: Set<string>; ids: Set<string> }> = {};
+
+  for (const article of articles) {
+    if (!article.location) continue;
+    const loc = article.location.name.toLowerCase();
+    if (!locationSources[loc]) {
+      locationSources[loc] = { sources: new Set(), ids: new Set() };
+    }
+
+    // Only count articles within the time window of the most recent one for this loc
+    const nowish = Date.now();
+    if (nowish - article.published.getTime() <= WINDOW_MS) {
+      locationSources[loc].sources.add(article.source);
+      locationSources[loc].ids.add(article.id);
+    }
+  }
+
+  // Collect corroborated article IDs
+  const corroboratedIds = new Set<string>();
+  for (const [, data] of Object.entries(locationSources)) {
+    if (data.sources.size >= MIN_SOURCES) {
+      data.ids.forEach((id) => corroboratedIds.add(id));
+    }
+  }
+
+  return articles.map((a) =>
+    corroboratedIds.has(a.id) ? { ...a, corroborated: true } : a
+  );
+}
+
 export async function fetchNews(): Promise<Article[]> {
-  // Fetch from Reddit and RSS sources in parallel
-  const [redditArticles, rssArticles] = await Promise.all([
+  // Fetch from Reddit, RSS, and GDELT in parallel
+  const [redditArticles, rssArticles, gdeltArticles] = await Promise.all([
     fetchRedditNews().catch(() => [] as Article[]),
-    fetchRealRSSFeeds().catch(() => [] as Article[])
+    fetchRealRSSFeeds().catch(() => [] as Article[]),
+    fetchGDELT().catch(() => [] as Article[]),
   ]);
 
-  // Merge all sources, sort by published date (newest first)
-  const allArticles = [...redditArticles, ...rssArticles];
-  allArticles.sort((a, b) => b.published.getTime() - a.published.getTime());
+  const allArticles = [...redditArticles, ...rssArticles, ...gdeltArticles];
+
+  // De-duplicate by ID
+  const seen = new Set<string>();
+  const deduped = allArticles.filter((a) => {
+    if (seen.has(a.id)) return false;
+    seen.add(a.id);
+    return true;
+  });
+
+  // Sort by published date (newest first)
+  deduped.sort((a, b) => {
+    const timeA = a.published.getTime();
+    const timeB = b.published.getTime();
+    const validA = isNaN(timeA) ? 0 : timeA;
+    const validB = isNaN(timeB) ? 0 : timeB;
+    return validB - validA;
+  });
+
+  // Cross-source corroboration pass
+  const withSignals = detectCrossSourceSignals(deduped);
 
   // If we couldn't fetch anything (due to network/CORS), fallback to a basic alert
-  if (allArticles.length === 0) {
-    allArticles.push({
+  if (withSignals.length === 0) {
+    withSignals.push({
       id: "fallback-0",
       title: "SYSTEM ALERT: OSINT Data Feeds Offline. Retrying connection to nodes...",
       source: "WARCHER SYSTEM",
@@ -433,62 +666,107 @@ export async function fetchNews(): Promise<Article[]> {
     });
   }
 
-  return allArticles;
+  return withSignals;
+}
+
+
+// ── EIA: real WTI crude oil + Henry Hub natural gas prices ───────────────────
+async function fetchEIAPrices(): Promise<{ oil: number; oilChange: number; gas: number; gasChange: number }> {
+  const apiKey = import.meta.env.VITE_EIA_API_KEY;
+  if (!apiKey) throw new Error("No EIA key");
+
+  // WTI crude oil — series RWTC (weekly spot price)
+  const [oilRes, gasRes] = await Promise.all([
+    axios.get(
+      `https://api.eia.gov/v2/petroleum/pri/spt/data/?api_key=${apiKey}&frequency=weekly&data[0]=value&facets[series][]=RWTC&sort[0][column]=period&sort[0][direction]=desc&offset=0&length=2`,
+      { timeout: 8000 }
+    ),
+    axios.get(
+      `https://api.eia.gov/v2/natural-gas/pri/sum/data/?api_key=${apiKey}&frequency=weekly&data[0]=value&facets[series][]=N9190US3&sort[0][column]=period&sort[0][direction]=desc&offset=0&length=2`,
+      { timeout: 8000 }
+    ),
+  ]);
+
+  const oilData = oilRes.data?.response?.data || [];
+  const gasData = gasRes.data?.response?.data || [];
+
+  const oilCurrent = parseFloat(oilData[0]?.value ?? "82.45");
+  const oilPrev    = parseFloat(oilData[1]?.value ?? oilCurrent.toString());
+  const oilChange  = oilPrev !== 0 ? ((oilCurrent - oilPrev) / oilPrev) * 100 : 0;
+
+  const gasCurrent = parseFloat(gasData[0]?.value ?? "2.15");
+  const gasPrev    = parseFloat(gasData[1]?.value ?? gasCurrent.toString());
+  const gasChange  = gasPrev !== 0 ? ((gasCurrent - gasPrev) / gasPrev) * 100 : 0;
+
+  return { oil: oilCurrent, oilChange, gas: gasCurrent, gasChange };
+}
+
+// ── FRED: real gold price (London AM fix, USD/troy oz) ────────────────────────
+async function fetchFREDGoldPrice(): Promise<{ gold: number; goldChange: number }> {
+  const apiKey = import.meta.env.VITE_FRED_API_KEY;
+  if (!apiKey) throw new Error("No FRED key");
+
+  const res = await axios.get(
+    `https://api.stlouisfed.org/fred/series/observations?series_id=GOLDAMGBD228NLBM&api_key=${apiKey}&file_type=json&sort_order=desc&limit=5`,
+    { timeout: 8000 }
+  );
+
+  // Filter out missing values (FRED uses "." for missing)
+  const obs: Array<{ date: string; value: string }> = (res.data?.observations || []).filter(
+    (o: { value: string }) => o.value !== "."
+  );
+
+  const current = parseFloat(obs[0]?.value ?? "2142.5");
+  const prev    = parseFloat(obs[1]?.value ?? current.toString());
+  const change  = prev !== 0 ? ((current - prev) / prev) * 100 : 0;
+
+  return { gold: current, goldChange: change };
 }
 
 export async function fetchPrices(): Promise<PriceData> {
-  try {
-    // Fetch from CoinGecko API (free tier)
-    const response = await axios.get(
-      "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,solana&vs_currencies=usd&include_24hr_change=true",
-    );
+  // Run all three sources in parallel
+  const [cryptoResult, eiaResult, fredResult] = await Promise.allSettled([
+    // CoinGecko — crypto (free, no key)
+    axios.get(
+      "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,solana&vs_currencies=usd&include_24hr_change=true"
+    ),
+    fetchEIAPrices(),
+    fetchFREDGoldPrice(),
+  ]);
 
-    const data = response.data;
-
-    return {
-      btc: {
-        price: data.bitcoin.usd,
-        change24h: data.bitcoin.usd_24h_change,
-      },
-      eth: {
-        price: data.ethereum.usd,
-        change24h: data.ethereum.usd_24h_change,
-      },
-      sol: {
-        price: data.solana.usd,
-        change24h: data.solana.usd_24h_change,
-      },
-      gold: {
-        price: 2142.5, // Mock gold price (would need separate API)
-        change24h: 0.8,
-      },
-      silver: {
-        price: 24.50, // Mock silver price
-        change24h: 1.2,
-      },
-      oil: {
-        price: 82.45, // Mock oil price
-        change24h: -1.2,
-      },
-      gas: {
-        price: 2.15, // Mock natural gas price
-        change24h: 3.4,
-      },
-    };
-  } catch (error) {
-    console.error("Error fetching prices:", error);
-    // Return mock data if API fails
-    return {
-      btc: { price: 73302.0, change24h: 7.32 },
-      eth: { price: 2156.21, change24h: 8.84 },
-      sol: { price: 145.20, change24h: 5.12 },
-      gold: { price: 2142.5, change24h: 0.8 },
-      silver: { price: 24.5, change24h: 1.2 },
-      oil: { price: 82.45, change24h: -1.2 },
-      gas: { price: 2.15, change24h: 3.4 },
-    };
+  // Crypto
+  let btc = { price: 73302.0, change24h: 7.32 };
+  let eth = { price: 2156.21, change24h: 8.84 };
+  let sol = { price: 145.20,  change24h: 5.12 };
+  if (cryptoResult.status === "fulfilled") {
+    const d = cryptoResult.value.data;
+    btc = { price: d.bitcoin?.usd ?? btc.price, change24h: d.bitcoin?.usd_24h_change ?? btc.change24h };
+    eth = { price: d.ethereum?.usd ?? eth.price, change24h: d.ethereum?.usd_24h_change ?? eth.change24h };
+    sol = { price: d.solana?.usd ?? sol.price,   change24h: d.solana?.usd_24h_change ?? sol.change24h };
   }
+
+  // Oil & Gas (EIA)
+  let oil    = { price: 82.45, change24h: -1.2 };
+  let gas    = { price: 2.15,  change24h: 3.4  };
+  if (eiaResult.status === "fulfilled") {
+    oil = { price: eiaResult.value.oil, change24h: eiaResult.value.oilChange };
+    gas = { price: eiaResult.value.gas, change24h: eiaResult.value.gasChange };
+  } else {
+    console.warn("EIA fetch failed, using fallback:", eiaResult.reason);
+  }
+
+  // Gold (FRED)
+  let gold   = { price: 2142.5, change24h: 0.8 };
+  let silver = { price: 24.5,   change24h: 1.2 };
+  if (fredResult.status === "fulfilled") {
+    gold = { price: fredResult.value.gold, change24h: fredResult.value.goldChange };
+  } else {
+    console.warn("FRED fetch failed, using fallback:", fredResult.reason);
+  }
+
+  return { btc, eth, sol, gold, silver, oil, gas };
 }
+
 
 // Generate AI SITREP from articles
 export function generateSitRep(articles: Article[]): string {
