@@ -6,6 +6,7 @@ interface HeaderProps {
   loading: boolean
   sweepNumber: number
   nextSweepIn: number // milliseconds
+  connected: boolean
 }
 
 function formatCountdown(ms: number): string {
@@ -15,7 +16,7 @@ function formatCountdown(ms: number): string {
   return `${m}:${String(s).padStart(2, '0')}`
 }
 
-export function Header({ articleCount, lastUpdate, loading, sweepNumber, nextSweepIn }: HeaderProps) {
+export function Header({ articleCount, lastUpdate, loading, sweepNumber, nextSweepIn, connected }: HeaderProps) {
   const formatTime = (date: Date) => {
     return date.toISOString().split('T')[1].slice(0, 8)
   }
@@ -56,6 +57,18 @@ export function Header({ articleCount, lastUpdate, loading, sweepNumber, nextSwe
 
           {/* Status Indicators */}
           <div className="flex flex-wrap items-center gap-3 text-xs">
+            {/* SSE Connection indicator */}
+            <div className={`flex items-center gap-2 px-3 py-1.5 rounded border ${
+              connected
+                ? 'bg-green-500/10 border-green-500/30'
+                : 'bg-yellow-500/10 border-yellow-500/30'
+            }`}>
+              <span className={`w-2 h-2 rounded-full ${connected ? 'bg-green-400' : 'bg-yellow-400 animate-pulse'}`} />
+              <span className={connected ? 'text-green-400' : 'text-yellow-400'}>
+                {connected ? 'LIVE' : 'RECONNECTING'}
+              </span>
+            </div>
+
             {/* Live status */}
             <div className="flex items-center gap-2 px-3 py-1.5 bg-green-500/10 border border-green-500/30 rounded">
               <Radio className="w-3 h-3 text-green-500" />

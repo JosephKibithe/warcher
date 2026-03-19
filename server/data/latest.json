@@ -1,0 +1,1522 @@
+{
+  "articles": [
+    {
+      "id": "rss-aHR0cHM6Ly9u",
+      "title": "MIDDLE EAST LIVE 19 March: Civilians bear the brunt as strikes and displacement rise",
+      "source": "UN News",
+      "link": "https://news.un.org/feed/view/en/story/2026/03/1167161",
+      "published": "2026-03-19T09:00:00.000Z",
+      "sourceType": "rss",
+      "category": "CONFLICT",
+      "priority": "HIGH",
+      "corroborated": false
+    },
+    {
+      "id": "opensky-eastern-mediterranean-1773907302668",
+      "title": "OpenSky: 80 aircraft tracked over Eastern Mediterranean",
+      "source": "OpenSky Network",
+      "link": "https://opensky-network.org",
+      "published": "2026-03-19T08:01:42.668Z",
+      "sourceType": "opensky",
+      "meta": {
+        "count": 80,
+        "region": "Eastern Mediterranean"
+      },
+      "category": "MILITARY",
+      "priority": "MED",
+      "corroborated": false
+    },
+    {
+      "id": "opensky-taiwan-strait-1773907302437",
+      "title": "OpenSky: 50 aircraft tracked over Taiwan Strait",
+      "source": "OpenSky Network",
+      "link": "https://opensky-network.org",
+      "published": "2026-03-19T08:01:42.437Z",
+      "sourceType": "opensky",
+      "location": {
+        "lat": 23.6978,
+        "lng": 120.9605,
+        "name": "Taiwan"
+      },
+      "meta": {
+        "count": 50,
+        "region": "Taiwan Strait"
+      },
+      "category": "MILITARY",
+      "priority": "MED",
+      "corroborated": false
+    },
+    {
+      "id": "opensky-ukraine-1773907302260",
+      "title": "OpenSky: 38 aircraft tracked over Ukraine",
+      "source": "OpenSky Network",
+      "link": "https://opensky-network.org",
+      "published": "2026-03-19T08:01:42.260Z",
+      "sourceType": "opensky",
+      "location": {
+        "lat": 49.0275,
+        "lng": 31.4828,
+        "name": "Ukraine"
+      },
+      "meta": {
+        "count": 38,
+        "region": "Ukraine"
+      },
+      "category": "MILITARY",
+      "priority": "MED",
+      "corroborated": false
+    },
+    {
+      "id": "opensky-middle-east-1773907302077",
+      "title": "OpenSky: 5 aircraft tracked over Middle East",
+      "source": "OpenSky Network",
+      "link": "https://opensky-network.org",
+      "published": "2026-03-19T08:01:42.077Z",
+      "sourceType": "opensky",
+      "meta": {
+        "count": 5,
+        "region": "Middle East"
+      },
+      "category": "MILITARY",
+      "priority": "MED",
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rxshu1",
+      "title": "Trump vows no more attacks by Israel on Iran gas field after it 'violently lashed out'",
+      "source": "r/worldnews",
+      "link": "https://www.reuters.com/world/middle-east/trump-vows-no-more-attacks-by-israel-iran-gas-field-after-it-violently-lashed-2026-03-19/",
+      "published": "2026-03-19T06:03:22.000Z",
+      "sourceType": "reddit",
+      "category": "CONFLICT",
+      "priority": "HIGH",
+      "location": {
+        "lat": 31.0461,
+        "lng": 34.8516,
+        "name": "Israel"
+      },
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rxs4ca",
+      "title": "Tech Incubator Takes Ukraine Startups on U.S. Roadshow",
+      "source": "r/UkrainianConflict",
+      "link": "https://www.nationaldefensemagazine.org/articles/2026/3/19/tech-incubator-takes-ukraine-startups-on-us-roadshow",
+      "published": "2026-03-19T05:41:22.000Z",
+      "sourceType": "reddit",
+      "category": "CONFLICT",
+      "priority": "MED",
+      "location": {
+        "lat": 49.0275,
+        "lng": 31.4828,
+        "name": "Ukraine"
+      },
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rxrx1f",
+      "title": "No one expected Mikhail Mishustin to last as Russia’s PM. But after four years of war, he’s become synonymous with the role.",
+      "source": "r/UkrainianConflict",
+      "link": "https://meduza.io/en/feature/2026/03/03/no-one-expected-mikhail-mishustin-to-last-as-russia-s-pm-but-after-four-years-of-war-he-s-become-synonymous-with-the-role",
+      "published": "2026-03-19T05:29:58.000Z",
+      "sourceType": "reddit",
+      "category": "CONFLICT",
+      "priority": "HIGH",
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rxr9ib",
+      "title": "Oil Prices Surge to $112 as Middle East Energy Hubs Come Under Attack",
+      "source": "r/worldnews",
+      "link": "https://www.timesnownews.com/business-economy/economy/oil-prices-surge-to-112-as-middle-east-energy-hubs-come-under-attack-article-153869645",
+      "published": "2026-03-19T04:54:20.000Z",
+      "sourceType": "reddit",
+      "category": "ECON",
+      "priority": "HIGH",
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rxr0vp",
+      "title": "Russian tip-off led to arrest of alleged CIA asset Vandyke and six Ukrainians by India.",
+      "source": "r/worldnews",
+      "link": "https://www.hindustantimes.com/india-news/russian-tip-off-led-to-the-arrest-of-us-national-vandyke-mercenary-six-ukrainians-by-nia-101773883183070.html",
+      "published": "2026-03-19T04:41:20.000Z",
+      "sourceType": "reddit",
+      "category": "CONFLICT",
+      "priority": "MED",
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rxqv0o",
+      "title": "Germany's Merz calls for urgent disbursement of €90bn EU loan to Ukraine",
+      "source": "r/UkrainianConflict",
+      "link": "https://www.pravda.com.ua/eng/news/2026/03/18/8026138/",
+      "published": "2026-03-19T04:32:37.000Z",
+      "sourceType": "reddit",
+      "category": "CONFLICT",
+      "priority": "HIGH",
+      "location": {
+        "lat": 49.0275,
+        "lng": 31.4828,
+        "name": "Ukraine"
+      },
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rxqsfv",
+      "title": "Ukraine war latest: Major Russian aircraft manufacturing plant hit in Ukrainian strike, General Staff says",
+      "source": "r/UkrainianConflict",
+      "link": "https://kyivindependent.com/ukraine-war-latest-major-russian-aircraft-manufacturing-plant-hit-in-ukrainian-strike-general-staff-says/",
+      "published": "2026-03-19T04:28:51.000Z",
+      "sourceType": "reddit",
+      "category": "MILITARY",
+      "priority": "HIGH",
+      "location": {
+        "lat": 49.0275,
+        "lng": 31.4828,
+        "name": "Ukraine"
+      },
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rxqrb0",
+      "title": "Spain takes victory lap as EU coalesces around Sánchez’s anti-war position",
+      "source": "r/geopolitics",
+      "link": "https://www.politico.com/www.politico.eu/article/spain-takes-victory-lap-as-rest-of-the-eu-coalesces-around-pedro-sanchez-anti-war-position/",
+      "published": "2026-03-19T04:27:12.000Z",
+      "sourceType": "reddit",
+      "category": "CONFLICT",
+      "priority": "HIGH",
+      "corroborated": false
+    },
+    {
+      "id": "rss-aHR0cHM6Ly93",
+      "title": "Trump says US 'knew nothing' about Israel's attack on major Iran gas field",
+      "source": "BBC Middle East",
+      "link": "https://www.bbc.com/news/articles/c93j37egjdeo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-03-19T04:24:31.000Z",
+      "sourceType": "rss",
+      "category": "CONFLICT",
+      "priority": "HIGH",
+      "location": {
+        "lat": 31.0461,
+        "lng": 34.8516,
+        "name": "Israel"
+      },
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rxqp1l",
+      "title": "Mark Carney and Narendra Modi: a great reset in Canada-India relations",
+      "source": "r/geopolitics",
+      "link": "https://www.bbc.com/news/articles/cx24gl7jrgno",
+      "published": "2026-03-19T04:23:58.000Z",
+      "sourceType": "reddit",
+      "category": "CONFLICT",
+      "priority": "MED",
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rxpvf1",
+      "title": "US intel chief: Iran has not rebuilt nuke enrichment program after '25 US strikes",
+      "source": "r/worldnews",
+      "link": "https://www.chinadailyasia.com/hk/article/630706",
+      "published": "2026-03-19T03:43:11.000Z",
+      "sourceType": "reddit",
+      "category": "NUCLEAR",
+      "priority": "HIGH",
+      "location": {
+        "lat": 32.4279,
+        "lng": 53.688,
+        "name": "Iran"
+      },
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rxpiar",
+      "title": "U.S. officials 'not allowed' to tell Trump Iran war concerns, former counterterrorism director claims",
+      "source": "r/geopolitics",
+      "link": "https://www.cbc.ca/news/world/joe-kent-tucker-carlson-iran-war-criticism-9.7134242",
+      "published": "2026-03-19T03:25:09.000Z",
+      "sourceType": "reddit",
+      "category": "CONFLICT",
+      "priority": "HIGH",
+      "location": {
+        "lat": 32.4279,
+        "lng": 53.688,
+        "name": "Iran"
+      },
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rxn1db",
+      "title": "‘Put him on trial’: pro-Kremlin loyalist turns on Putin in rare outburst",
+      "source": "r/UkrainianConflict",
+      "link": "http://theguardian.com/world/2026/mar/18/pro-kremlin-loyalist-turns-on-putin-ilya-remeslo-russia",
+      "published": "2026-03-19T01:33:52.000Z",
+      "sourceType": "reddit",
+      "category": "CONFLICT",
+      "priority": "MED",
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rxmzt3",
+      "title": "Middle East war: why attacks on gasfields like South Pars are a major escalation",
+      "source": "r/geopolitics",
+      "link": "https://www.theguardian.com/world/2026/mar/18/middle-east-war-why-attacks-gasfield-south-pars-are-a-major-escalation",
+      "published": "2026-03-19T01:32:01.000Z",
+      "sourceType": "reddit",
+      "category": "CONFLICT",
+      "priority": "HIGH",
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rxm0oj",
+      "title": "Brazilian truckers weigh strike as diesel prices jump amid Middle East conflict",
+      "source": "r/geopolitics",
+      "link": "https://www.reuters.com/business/world-at-work/brazilian-truckers-weigh-strike-diesel-prices-jump-amid-middle-east-conflict-2026-03-17/",
+      "published": "2026-03-19T00:49:54.000Z",
+      "sourceType": "reddit",
+      "category": "CONFLICT",
+      "priority": "HIGH",
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rxlgzt",
+      "title": "Tehran warns Gulf energy sites to evacuate after Iranian gas facilities hit",
+      "source": "r/worldnews",
+      "link": "https://www.reuters.com/world/middle-east/tehran-warns-gulf-energy-installations-after-oil-industry-facilities-hit-2026-03-18/",
+      "published": "2026-03-19T00:27:02.000Z",
+      "sourceType": "reddit",
+      "category": "CONFLICT",
+      "priority": "HIGH",
+      "location": {
+        "lat": 35.6892,
+        "lng": 51.389,
+        "name": "Tehran"
+      },
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rxle2s",
+      "title": "BIG | A new unprecedented level of Russian losses in a single day in Ukraine.\nOn March 17, after a failed Russian offensive attempt in the Zaporizhzhia direction ... 1,710 Russian troops were either killed or seriously wounded.",
+      "source": "r/UkrainianConflict",
+      "link": "https://x.com/NSTRIKE1231",
+      "published": "2026-03-19T00:23:37.000Z",
+      "sourceType": "reddit",
+      "category": "CONFLICT",
+      "priority": "HIGH",
+      "location": {
+        "lat": 49.0275,
+        "lng": 31.4828,
+        "name": "Ukraine"
+      },
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rxla35",
+      "title": "Exclusive: US weighs military reinforcements as Iran war enters possible new phase",
+      "source": "r/geopolitics",
+      "link": "https://www.reuters.com/world/middle-east/us-weighs-military-reinforcements-iran-war-enters-possible-new-phase-2026-03-18/",
+      "published": "2026-03-19T00:19:03.000Z",
+      "sourceType": "reddit",
+      "category": "MILITARY",
+      "priority": "HIGH",
+      "location": {
+        "lat": 32.4279,
+        "lng": 53.688,
+        "name": "Iran"
+      },
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rxl3xn",
+      "title": "Saudi analyst says kingdom will activate defence pact with Pakistan if it joins Iran war",
+      "source": "r/worldnews",
+      "link": "https://www.middleeasteye.net/news/saudi-analyst-says-kingdom-will-activate-defence-pact-pakistan-if-it-joins-war-iran",
+      "published": "2026-03-19T00:12:13.000Z",
+      "sourceType": "reddit",
+      "category": "CONFLICT",
+      "priority": "HIGH",
+      "location": {
+        "lat": 32.4279,
+        "lng": 53.688,
+        "name": "Iran"
+      },
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rxkxg8",
+      "title": "Pentagon seeks more than $200 billion in budget request for Iran war",
+      "source": "r/geopolitics",
+      "link": "https://www.washingtonpost.com/national-security/2026/03/18/iran-cost-budget-pentagon/",
+      "published": "2026-03-19T00:04:46.000Z",
+      "sourceType": "reddit",
+      "category": "CONFLICT",
+      "priority": "HIGH",
+      "location": {
+        "lat": 32.4279,
+        "lng": 53.688,
+        "name": "Iran"
+      },
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rxks10",
+      "title": "UAE Official Says Iran War Tightens Gulf Ties to US, Israel",
+      "source": "r/geopolitics",
+      "link": "https://www.bloomberg.com/news/articles/2026-03-17/uae-official-says-iran-war-tightens-gulf-ties-to-us-israel",
+      "published": "2026-03-18T23:58:59.000Z",
+      "sourceType": "reddit",
+      "category": "CONFLICT",
+      "priority": "HIGH",
+      "location": {
+        "lat": 31.0461,
+        "lng": 34.8516,
+        "name": "Israel"
+      },
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rxkpfs",
+      "title": "US weighs military reinforcements as Iran war enters possible new phase",
+      "source": "r/worldnews",
+      "link": "https://www.reuters.com/world/middle-east/us-weighs-military-reinforcements-iran-war-enters-possible-new-phase-2026-03-18/",
+      "published": "2026-03-18T23:55:58.000Z",
+      "sourceType": "reddit",
+      "category": "MILITARY",
+      "priority": "HIGH",
+      "location": {
+        "lat": 32.4279,
+        "lng": 53.688,
+        "name": "Iran"
+      },
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rxk9if",
+      "title": "MASSIVE Anti-Russia Protests Begin In Hungary",
+      "source": "r/UkrainianConflict",
+      "link": "https://www.youtube.com/watch?v=EBeMk4s1qXw",
+      "published": "2026-03-18T23:37:40.000Z",
+      "sourceType": "reddit",
+      "category": "CONFLICT",
+      "priority": "MED",
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rxj3m3",
+      "title": "Iran missile attack on Qatar causes 'extensive damage' to facility housing huge gas plant",
+      "source": "r/worldnews",
+      "link": "https://www.cnbc.com/2026/03/18/iran-war-qatar-ras-laffan-natural-gas-lng.html",
+      "published": "2026-03-18T22:52:00.000Z",
+      "sourceType": "reddit",
+      "category": "CONFLICT",
+      "priority": "HIGH",
+      "location": {
+        "lat": 32.4279,
+        "lng": 53.688,
+        "name": "Iran"
+      },
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rxhtqt",
+      "title": "Iranian missile veers into West Bank, kills 3 Palestinian women in beauty salon",
+      "source": "r/geopolitics",
+      "link": "https://www.ynetnews.com/article/hk2vy9005zx#autoplay",
+      "published": "2026-03-18T22:02:47.000Z",
+      "sourceType": "reddit",
+      "category": "CONFLICT",
+      "priority": "HIGH",
+      "location": {
+        "lat": 32.4279,
+        "lng": 53.688,
+        "name": "Iran"
+      },
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rxhke5",
+      "title": "Qatar orders senior Iranian diplomats to leave the country as persona non grata",
+      "source": "r/geopolitics",
+      "link": "https://www.wsj.com/livecoverage/iran-us-israel-war-news-2026/card/qatar-expels-senior-iranian-diplomats-after-missile-attack-B5kPhmlKSPZVNf8cN1pS",
+      "published": "2026-03-18T21:52:47.000Z",
+      "sourceType": "reddit",
+      "category": "DIPLOMATIC",
+      "priority": "MED",
+      "location": {
+        "lat": 32.4279,
+        "lng": 53.688,
+        "name": "Iran"
+      },
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rxh87n",
+      "title": "US intel official says Iran's regime still intact but refuses to discuss talks with Trump about war",
+      "source": "r/geopolitics",
+      "link": "https://apnews.com/article/fbi-iran-war-congress-gabbard-kash-patel-54efeb2ec50a7d31421dc1c36ea4ab5b",
+      "published": "2026-03-18T21:39:39.000Z",
+      "sourceType": "reddit",
+      "category": "DIPLOMATIC",
+      "priority": "HIGH",
+      "location": {
+        "lat": 32.4279,
+        "lng": 53.688,
+        "name": "Iran"
+      },
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rxej7t",
+      "title": "‘Put him on trial’: pro-Kremlin loyalist turns on Putin in rare outburst | Russia",
+      "source": "r/UkrainianConflict",
+      "link": "https://www.theguardian.com/world/2026/mar/18/pro-kremlin-loyalist-turns-on-putin-ilya-remeslo-russia?utm_source=newsshowcase&amp;utm_medium=gnews&amp;utm_campaign=CDAQjI212IDI_fRDGK7X-NWqh_brlgEqDggAKgYICjCXqnsw37MJ&amp;utm_content=rundown",
+      "published": "2026-03-18T20:00:48.000Z",
+      "sourceType": "reddit",
+      "category": "CONFLICT",
+      "priority": "MED",
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rxe1cd",
+      "title": "QatarEnergy reports 'extensive damage' after missile attacks on Ras Laffan industrial city",
+      "source": "r/worldnews",
+      "link": "https://www.reuters.com/world/middle-east/qatarenergy-reports-extensive-damage-after-missile-attacks-ras-laffan-industrial-2026-03-18/",
+      "published": "2026-03-18T19:43:00.000Z",
+      "sourceType": "reddit",
+      "category": "CONFLICT",
+      "priority": "HIGH",
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rxdpat",
+      "title": "Battlefield analysis: What Ukraine’s recent front-line gains really mean",
+      "source": "r/UkrainianConflict",
+      "link": "https://kyivindependent.com/analysis-ukraines-counterattacks-and-the-upcoming-russian-spring-campaign/",
+      "published": "2026-03-18T19:30:48.000Z",
+      "sourceType": "reddit",
+      "category": "CONFLICT",
+      "priority": "MED",
+      "location": {
+        "lat": 49.0275,
+        "lng": 31.4828,
+        "name": "Ukraine"
+      },
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rxdbwa",
+      "title": "Putin Reportedly Avoids Kremlin After Reports of Iranian Leaders Tracked by Cameras",
+      "source": "r/worldnews",
+      "link": "https://united24media.com/latest-news/putin-reportedly-avoids-kremlin-after-reports-of-iranian-leaders-tracked-by-cameras-17023",
+      "published": "2026-03-18T19:17:24.000Z",
+      "sourceType": "reddit",
+      "category": "CONFLICT",
+      "priority": "MED",
+      "location": {
+        "lat": 32.4279,
+        "lng": 53.688,
+        "name": "Iran"
+      },
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rxd7pn",
+      "title": "Ukraine Develops SHABLYA K-2 Combat Module With Paired AK-74 Rifles",
+      "source": "r/UkrainianConflict",
+      "link": "https://militarnyi.com/en/news/ukraine-develops-shablya-k-2-combat-module-with-paired-ak-74-rifles/",
+      "published": "2026-03-18T19:13:19.000Z",
+      "sourceType": "reddit",
+      "category": "CONFLICT",
+      "priority": "MED",
+      "location": {
+        "lat": 49.0275,
+        "lng": 31.4828,
+        "name": "Ukraine"
+      },
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rxcz7x",
+      "title": "Israel faces stiff Hezbollah resistance as it attempts to push deeper into Lebanon | Lebanon",
+      "source": "r/geopolitics",
+      "link": "https://www.theguardian.com/world/2026/mar/18/fighting-intensifies-israel-hezbollah-southern-lebanon",
+      "published": "2026-03-18T19:04:57.000Z",
+      "sourceType": "reddit",
+      "category": "PROXY",
+      "priority": "MED",
+      "location": {
+        "lat": 31.0461,
+        "lng": 34.8516,
+        "name": "Israel"
+      },
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rxcypr",
+      "title": "Ukraine-Russia war latest: Kyiv advances inside ‘kill zone’ areas as world distracted by Middle East crisis",
+      "source": "r/UkrainianConflict",
+      "link": "https://www.independent.co.uk/news/world/europe/ukraine-russia-war-live-putin-starmer-zelensky-b2940705.html",
+      "published": "2026-03-18T19:04:27.000Z",
+      "sourceType": "reddit",
+      "category": "CONFLICT",
+      "priority": "HIGH",
+      "location": {
+        "lat": 50.4501,
+        "lng": 30.5234,
+        "name": "Kyiv"
+      },
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rxcvnc",
+      "title": "Ukraine dispatches 200 drone experts to Gulf after Iran attacks",
+      "source": "r/UkrainianConflict",
+      "link": "https://www.newarab.com/news/ukraine-dispatches-200-drone-experts-gulf-after-iran-attacks",
+      "published": "2026-03-18T19:01:29.000Z",
+      "sourceType": "reddit",
+      "category": "MILITARY",
+      "priority": "HIGH",
+      "location": {
+        "lat": 49.0275,
+        "lng": 31.4828,
+        "name": "Ukraine"
+      },
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rxcfd9",
+      "title": "Russia Sends Oil and Gas Tankers to Crisis-Hit Cuba, Defying U.S. Blockade",
+      "source": "r/worldnews",
+      "link": "https://www.themoscowtimes.com/2026/03/18/russia-sends-oil-and-gas-tankers-to-crisis-hit-cuba-defying-us-blockade-ft-a92264",
+      "published": "2026-03-18T18:45:20.000Z",
+      "sourceType": "reddit",
+      "category": "MILITARY",
+      "priority": "MED",
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rxbsrw",
+      "title": "Trump May Not Be Able to End This War",
+      "source": "r/geopolitics",
+      "link": "https://www.theatlantic.com/international/2026/03/why-iran-regime-wont-surrender/686422/?utm_source=reddit&amp;utm_campaign=the-atlantic&amp;utm_medium=social&amp;utm_content=edit-promo",
+      "published": "2026-03-18T18:22:22.000Z",
+      "sourceType": "reddit",
+      "category": "CONFLICT",
+      "priority": "HIGH",
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rxbht9",
+      "title": "Ukrainian forces hit two critical aviation plants in Russia",
+      "source": "r/UkrainianConflict",
+      "link": "https://newsukraine.rbc.ua/news/ukrainian-forces-hit-two-critical-aviation-1773850304.html",
+      "published": "2026-03-18T18:11:12.000Z",
+      "sourceType": "reddit",
+      "category": "MILITARY",
+      "priority": "MED",
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rxbei9",
+      "title": "Europe tells Trump Iran is 'not our war'",
+      "source": "r/worldnews",
+      "link": "https://www.reuters.com/world/europe/not-our-war-europe-says-no-trump-2026-03-18/",
+      "published": "2026-03-18T18:07:55.000Z",
+      "sourceType": "reddit",
+      "category": "CONFLICT",
+      "priority": "HIGH",
+      "location": {
+        "lat": 32.4279,
+        "lng": 53.688,
+        "name": "Iran"
+      },
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rxb3l5",
+      "title": "‘Put him on trial’: pro-Kremlin loyalist turns on Putin in rare outburst | Russia",
+      "source": "r/worldnews",
+      "link": "https://www.theguardian.com/world/2026/mar/18/pro-kremlin-loyalist-turns-on-putin-ilya-remeslo-russia",
+      "published": "2026-03-18T17:57:11.000Z",
+      "sourceType": "reddit",
+      "category": "CONFLICT",
+      "priority": "MED",
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rx9hni",
+      "title": "Ukrainian forces reportedly repel Russian assault on Kupiansk axis, kill 18 soldiers, destroy their equipment",
+      "source": "r/UkrainianConflict",
+      "link": "https://gwaramedia.com/en/ukrainian-forces-reportedly-repel-russian-assault-on-kupiansk-axis-kill-18-soldiers-destroy-their-equipment/?utm_source=Reddit",
+      "published": "2026-03-18T17:00:35.000Z",
+      "sourceType": "reddit",
+      "category": "MILITARY",
+      "priority": "MED",
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rx8w1o",
+      "title": "Iran war risks delaying Ukraine peace talks, Zelensky says, urges Trump-Starmer reconciliation",
+      "source": "r/geopolitics",
+      "link": "https://kyivindependent.com/zelensky-warns-political-divisions-and-iran-war-are-sidelining-ukraine-urges-trump-and-starmer-to-find-common-ground/",
+      "published": "2026-03-18T16:38:34.000Z",
+      "sourceType": "reddit",
+      "category": "DIPLOMATIC",
+      "priority": "HIGH",
+      "location": {
+        "lat": 49.0275,
+        "lng": 31.4828,
+        "name": "Ukraine"
+      },
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rx8lv5",
+      "title": "German Chancellor Urges EU to Bypass Hungary and Release Stalled 90 Billion Euro Ukraine Loan",
+      "source": "r/worldnews",
+      "link": "https://united24media.com/latest-news/german-chancellor-urges-eu-to-bypass-hungary-and-release-stalled-90-billion-euro-ukraine-loan-17018",
+      "published": "2026-03-18T16:28:11.000Z",
+      "sourceType": "reddit",
+      "category": "CONFLICT",
+      "priority": "MED",
+      "location": {
+        "lat": 49.0275,
+        "lng": 31.4828,
+        "name": "Ukraine"
+      },
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rx74jz",
+      "title": "​Ukrainian Drones Destroy Concealed BM-21 Grad System with Full Ammo Load (Video)",
+      "source": "r/UkrainianConflict",
+      "link": "https://en.defence-ua.com/news/ukrainian_drones_destroy_concealed_bm_21_grad_system_with_full_ammo_load_video-17863.html",
+      "published": "2026-03-18T15:33:20.000Z",
+      "sourceType": "reddit",
+      "category": "MILITARY",
+      "priority": "MED",
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rx6toy",
+      "title": "​Ukrainian SOF Strike russian S-400 System, Missile Command Post, and Ammo Depot in Night Raids Across Crimea and Zaporizhzhia (Video)",
+      "source": "r/UkrainianConflict",
+      "link": "https://en.defence-ua.com/news/ukrainian_sof_strike_russian_s_400_system_missile_command_post_and_ammo_depot_in_night_raids_across_crimea_and_zaporizhzhia_video-17864.html",
+      "published": "2026-03-18T15:22:09.000Z",
+      "sourceType": "reddit",
+      "category": "CONFLICT",
+      "priority": "HIGH",
+      "location": {
+        "lat": 45.3375,
+        "lng": 34.1212,
+        "name": "Crimea"
+      },
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rx6hl8",
+      "title": "Sean Penn thanks Ukrainian Railways CEO for ‘treasure’ of custom Oscar after skipping awards ceremony",
+      "source": "r/UkrainianConflict",
+      "link": "https://www.the-independent.com/arts-entertainment/films/news/sean-penn-oscar-trophy-ukraine-metal-b2940986.html",
+      "published": "2026-03-18T15:09:16.000Z",
+      "sourceType": "reddit",
+      "category": "CONFLICT",
+      "priority": "HIGH",
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rx6e2b",
+      "title": "Europe could offer to help Trump on Iran — if he backs Ukraine, Finland’s Stubb suggests",
+      "source": "r/UkrainianConflict",
+      "link": "https://www.politico.eu/article/europe-help-donald-trump-iran-war-ukraine-finland-alexander-stubb/",
+      "published": "2026-03-18T15:05:45.000Z",
+      "sourceType": "reddit",
+      "category": "CONFLICT",
+      "priority": "MED",
+      "location": {
+        "lat": 49.0275,
+        "lng": 31.4828,
+        "name": "Ukraine"
+      },
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rx68ac",
+      "title": "EU liberals pitch NATO-style trade pact with Canada, Japan and South Korea",
+      "source": "r/geopolitics",
+      "link": "https://www.politico.eu/article/eu-liberals-pitch-nato-style-trade-pact-canada-japan-south-korea/",
+      "published": "2026-03-18T14:59:49.000Z",
+      "sourceType": "reddit",
+      "category": "CONFLICT",
+      "priority": "MED",
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rx5vq7",
+      "title": "Sweden says Iran has executed a Swedish citizen",
+      "source": "r/worldnews",
+      "link": "https://www.reuters.com/world/europe/swedish-citizen-executed-iran-swedens-foreign-minister-says-2026-03-18/",
+      "published": "2026-03-18T14:46:12.000Z",
+      "sourceType": "reddit",
+      "category": "CONFLICT",
+      "priority": "MED",
+      "location": {
+        "lat": 32.4279,
+        "lng": 53.688,
+        "name": "Iran"
+      },
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rx5am4",
+      "title": "Senior UAE official: Iran's attacks will push Gulf states closer to Israel",
+      "source": "r/geopolitics",
+      "link": "https://www.timesofisrael.com/liveblog_entry/senior-uae-official-irans-attacks-will-push-gulf-states-closer-to-israel/",
+      "published": "2026-03-18T14:23:39.000Z",
+      "sourceType": "reddit",
+      "category": "CONFLICT",
+      "priority": "HIGH",
+      "location": {
+        "lat": 31.0461,
+        "lng": 34.8516,
+        "name": "Israel"
+      },
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rx57zw",
+      "title": "5 Russian oil tankers are coming to India",
+      "source": "r/geopolitics",
+      "link": "https://x.com/infoindata/status/2034197023000555848",
+      "published": "2026-03-18T14:20:46.000Z",
+      "sourceType": "reddit",
+      "category": "MILITARY",
+      "priority": "MED",
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rx48lg",
+      "title": "Iran warns of strikes on Gulf oil facilities 'in coming hours', state media reports",
+      "source": "r/worldnews",
+      "link": "https://www.reuters.com/world/middle-east/iran-issues-evacuation-warnings-several-energy-facilities-across-gulf-state-2026-03-18/",
+      "published": "2026-03-18T13:42:25.000Z",
+      "sourceType": "reddit",
+      "category": "CONFLICT",
+      "priority": "HIGH",
+      "location": {
+        "lat": 32.4279,
+        "lng": 53.688,
+        "name": "Iran"
+      },
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rx3o8f",
+      "title": "800 Missiles in One Day—Zelenskyy Warns Patriot Stockpiles Are Draining Fast",
+      "source": "r/UkrainianConflict",
+      "link": "https://united24media.com/latest-news/800-missiles-in-one-day-zelenskyy-warns-patriot-stockpiles-are-draining-fast-16994",
+      "published": "2026-03-18T13:18:47.000Z",
+      "sourceType": "reddit",
+      "category": "CONFLICT",
+      "priority": "HIGH",
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rx3nb5",
+      "title": "Russia Too Massive to Defend Against Ukrainian Drones, Top Official Admits",
+      "source": "r/UkrainianConflict",
+      "link": "https://united24media.com/latest-news/russia-too-massive-to-defend-against-ukrainian-drones-top-official-admits-17002",
+      "published": "2026-03-18T13:17:54.000Z",
+      "sourceType": "reddit",
+      "category": "MILITARY",
+      "priority": "MED",
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rx3fw0",
+      "title": "Strike hits South Pars, world’s largest gas field, in Iran",
+      "source": "r/worldnews",
+      "link": "https://www.turkiyetoday.com/region/strike-hits-south-pars-worlds-largest-gas-field-in-iran-3216471",
+      "published": "2026-03-18T13:09:20.000Z",
+      "sourceType": "reddit",
+      "category": "CONFLICT",
+      "priority": "HIGH",
+      "location": {
+        "lat": 32.4279,
+        "lng": 53.688,
+        "name": "Iran"
+      },
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rx13j5",
+      "title": "Strike on Aircraft Repair Plant in Staraya Russa: A-50 AWACS Planes May Have Been On Site",
+      "source": "r/UkrainianConflict",
+      "link": "https://militarnyi.com/en/news/strike-on-aircraft-repair-plant-in-staraya-russa-a-50-awacs-planes-may-have-been-on-site/",
+      "published": "2026-03-18T11:18:38.000Z",
+      "sourceType": "reddit",
+      "category": "MILITARY",
+      "priority": "HIGH",
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rx0yq3",
+      "title": "Russia protested several Israeli strikes aimed at areas near the Bushehr reactor in Iran that the Russians claim were close to locations where Russian experts are located. The protest was conveyed through the Russian embassy in Israel.",
+      "source": "r/geopolitics",
+      "link": "https://www.ynet.co.il/news/article/hkcpwf79zg",
+      "published": "2026-03-18T11:11:52.000Z",
+      "sourceType": "reddit",
+      "category": "DIPLOMATIC",
+      "priority": "HIGH",
+      "location": {
+        "lat": 31.0461,
+        "lng": 34.8516,
+        "name": "Israel"
+      },
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rx0kgk",
+      "title": "World Health Organization Prepares for Nuclear Scenario, Including Weapons Use, in Iran",
+      "source": "r/worldnews",
+      "link": "https://united24media.com/latest-news/world-health-organization-prepares-for-nuclear-scenario-including-weapons-use-in-iran-16995",
+      "published": "2026-03-18T10:51:37.000Z",
+      "sourceType": "reddit",
+      "category": "NUCLEAR",
+      "priority": "HIGH",
+      "location": {
+        "lat": 32.4279,
+        "lng": 53.688,
+        "name": "Iran"
+      },
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rx00su",
+      "title": "'Too Many People Dying': Irish PM Martin Slams War Standing Next To Trump At White House",
+      "source": "r/worldnews",
+      "link": "https://www.news18.com/world/too-many-people-dying-irish-pm-martin-slams-war-standing-next-to-trump-at-white-house-9983338.html",
+      "published": "2026-03-18T10:21:23.000Z",
+      "sourceType": "reddit",
+      "category": "CONFLICT",
+      "priority": "HIGH",
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rwzq64",
+      "title": "Jonathan Powell Said an Iran Deal Was “Within Reach” Days Before Strikes Began",
+      "source": "r/geopolitics",
+      "link": "https://storiestoday.co.uk/jonathan-powell-iran-talks-progress/",
+      "published": "2026-03-18T10:04:37.000Z",
+      "sourceType": "reddit",
+      "category": "CONFLICT",
+      "priority": "HIGH",
+      "location": {
+        "lat": 32.4279,
+        "lng": 53.688,
+        "name": "Iran"
+      },
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rwzdah",
+      "title": "Ukraine finds Arab allies amid Iran War",
+      "source": "r/UkrainianConflict",
+      "link": "https://thearabweekly.com/ukraine-finds-arab-allies-amid-iran-war",
+      "published": "2026-03-18T09:42:53.000Z",
+      "sourceType": "reddit",
+      "category": "CONFLICT",
+      "priority": "HIGH",
+      "location": {
+        "lat": 49.0275,
+        "lng": 31.4828,
+        "name": "Ukraine"
+      },
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rwyy7l",
+      "title": "Europe could offer to help Trump on Iran — if he backs Ukraine, Finland’s Stubb suggests",
+      "source": "r/worldnews",
+      "link": "https://www.politico.eu/article/europe-help-donald-trump-iran-war-ukraine-finland-alexander-stubb/",
+      "published": "2026-03-18T09:17:23.000Z",
+      "sourceType": "reddit",
+      "category": "CONFLICT",
+      "priority": "MED",
+      "location": {
+        "lat": 49.0275,
+        "lng": 31.4828,
+        "name": "Ukraine"
+      },
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rwypvn",
+      "title": "'We Sincerely Thank India': Iran Thanks India For Sending First Medical Aid Shipment To Iran As Conflict Enters Day 19",
+      "source": "r/geopolitics",
+      "link": "https://www.oneindia.com/india/we-sincerely-thank-india-iran-thanks-india-for-sending-first-medical-aid-shipment-to-iran-as-conf-8030547.html",
+      "published": "2026-03-18T09:03:03.000Z",
+      "sourceType": "reddit",
+      "category": "CONFLICT",
+      "priority": "MED",
+      "location": {
+        "lat": 32.4279,
+        "lng": 53.688,
+        "name": "Iran"
+      },
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rwx4pv",
+      "title": "Telegram is full of channels posting videos of Ukrainian POWs being killed and their bodies desecrated. Many are run by teenagers.",
+      "source": "r/UkrainianConflict",
+      "link": "https://meduza.io/en/feature/2026/03/17/telegram-is-full-of-channels-posting-videos-of-ukrainian-pows-being-killed-and-their-bodies-desecrated-many-are-run-by-teenagers",
+      "published": "2026-03-18T07:22:12.000Z",
+      "sourceType": "reddit",
+      "category": "CONFLICT",
+      "priority": "HIGH",
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rwwphe",
+      "title": "Russia's ex-Defense Minister raises alarm over Ukraine's drone strikes",
+      "source": "r/UkrainianConflict",
+      "link": "https://kyivindependent.com/ukrainian-drones-pose-threat-to-russias-ural-region-over-1-500-kilometers-from-border-ex-russian-defense-minister-says/",
+      "published": "2026-03-18T06:56:13.000Z",
+      "sourceType": "reddit",
+      "category": "MILITARY",
+      "priority": "HIGH",
+      "location": {
+        "lat": 49.0275,
+        "lng": 31.4828,
+        "name": "Ukraine"
+      },
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rwvnyh",
+      "title": "The era of US dominance in economic warfare is over",
+      "source": "r/geopolitics",
+      "link": "https://www.ft.com/content/ae458591-5941-45f1-bf7b-7110bc35eb88",
+      "published": "2026-03-18T05:54:20.000Z",
+      "sourceType": "reddit",
+      "category": "CONFLICT",
+      "priority": "HIGH",
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rwskva",
+      "title": "Israel Is Hunting Down Iranian Regime Members in Their Hideouts, One by One",
+      "source": "r/geopolitics",
+      "link": "https://www.wsj.com/world/middle-east/israel-iran-leadership-528c6114?st=hShAt8&amp;reflink=desktopwebshare_permalink",
+      "published": "2026-03-18T03:16:16.000Z",
+      "sourceType": "reddit",
+      "category": "CONFLICT",
+      "priority": "MED",
+      "location": {
+        "lat": 31.0461,
+        "lng": 34.8516,
+        "name": "Israel"
+      },
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rwjvne",
+      "title": "‘Never heard him so angry’: Trump is furious that global allies aren’t pitching in in Iran",
+      "source": "r/geopolitics",
+      "link": "https://www.politico.com/news/2026/03/17/trump-iran-nato-allies-assistance-00831355",
+      "published": "2026-03-17T21:22:26.000Z",
+      "sourceType": "reddit",
+      "category": "CONFLICT",
+      "priority": "MED",
+      "location": {
+        "lat": 32.4279,
+        "lng": 53.688,
+        "name": "Iran"
+      },
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rwjgy1",
+      "title": "Iran state media share Lego propaganda video with figures blasting targets across the Middle East",
+      "source": "r/MiddleEastNews",
+      "link": "https://www.yahoo.com/news/videos/iran-state-media-share-lego-130648827.html",
+      "published": "2026-03-17T21:07:27.000Z",
+      "sourceType": "reddit",
+      "category": "CONFLICT",
+      "priority": "MED",
+      "location": {
+        "lat": 32.4279,
+        "lng": 53.688,
+        "name": "Iran"
+      },
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rw3m9l",
+      "title": "A photo of Iran’s bombed schoolgirl graveyard went around the world. Was it real, or AI?",
+      "source": "r/MiddleEastNews",
+      "link": "https://www.theguardian.com/global-development/2026/mar/17/atrocity-ai-slop-verify-facts-iran-minab-graves",
+      "published": "2026-03-17T11:14:17.000Z",
+      "sourceType": "reddit",
+      "category": "CONFLICT",
+      "priority": "MED",
+      "location": {
+        "lat": 32.4279,
+        "lng": 53.688,
+        "name": "Iran"
+      },
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rvtf3j",
+      "title": "The US is offering a $10M reward just to find him.Where is Iran's new Supreme Leader?",
+      "source": "r/MiddleEastNews",
+      "link": "https://youtube.com/shorts/N9AZbqJZftw",
+      "published": "2026-03-17T01:49:16.000Z",
+      "sourceType": "reddit",
+      "category": "CONFLICT",
+      "priority": "HIGH",
+      "location": {
+        "lat": 32.4279,
+        "lng": 53.688,
+        "name": "Iran"
+      },
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rvteo9",
+      "title": "The US is offering a $10M reward just to find him.Where is Iran's new Supreme Leader?",
+      "source": "r/MiddleEastNews",
+      "link": "https://youtube.com/shorts/N9AZbqJZftw",
+      "published": "2026-03-17T01:48:47.000Z",
+      "sourceType": "reddit",
+      "category": "CONFLICT",
+      "priority": "HIGH",
+      "location": {
+        "lat": 32.4279,
+        "lng": 53.688,
+        "name": "Iran"
+      },
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rurh3z",
+      "title": "[Deployment] [Secret] Liberating Myanmar: American Power Socially Anchored",
+      "source": "r/GlobalPowers",
+      "link": "https://www.reddit.com/r/GlobalPowers/comments/1rurh3z/deployment_secret_liberating_myanmar_american/",
+      "published": "2026-03-15T22:11:26.000Z",
+      "sourceType": "reddit",
+      "category": "CONFLICT",
+      "priority": "MED",
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rue6vq",
+      "title": "Iran sat on intelligence about those KC-135s for 11 days before striking. That gap is the most important detail nobody is talking about.",
+      "source": "r/MiddleEastNews",
+      "link": "https://youtu.be/41vuXqDHJJE",
+      "published": "2026-03-15T13:34:43.000Z",
+      "sourceType": "reddit",
+      "category": "CONFLICT",
+      "priority": "MED",
+      "location": {
+        "lat": 32.4279,
+        "lng": 53.688,
+        "name": "Iran"
+      },
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1ru46of",
+      "title": "Five options the U.S. is weighing for Iran ground operations — and why the most likely scenario isn't a full invasion",
+      "source": "r/MiddleEastNews",
+      "link": "https://sonoadhuc130127.substack.com/p/will-the-us-send-ground-troops-to",
+      "published": "2026-03-15T04:01:54.000Z",
+      "sourceType": "reddit",
+      "category": "CONFLICT",
+      "priority": "HIGH",
+      "location": {
+        "lat": 32.4279,
+        "lng": 53.688,
+        "name": "Iran"
+      },
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1ru2f7y",
+      "title": "How History Keeps the U.S. and Iran on a Collision Course",
+      "source": "r/MiddleEastNews",
+      "link": "https://oilprice.com/Geopolitics/International/How-History-Keeps-the-US-and-Iran-on-a-Collision-Course.html?utm_source=reddit&amp;utm_medium=reddit_repost",
+      "published": "2026-03-15T02:33:12.000Z",
+      "sourceType": "reddit",
+      "category": "CONFLICT",
+      "priority": "MED",
+      "location": {
+        "lat": 32.4279,
+        "lng": 53.688,
+        "name": "Iran"
+      },
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rtmowq",
+      "title": "Lebanon’s bid for historic negotiations with Israel rebuffed as US says opportunity has passed",
+      "source": "r/MiddleEastNews",
+      "link": "https://www.ynetnews.com/article/sjhusxf9bx",
+      "published": "2026-03-14T15:44:20.000Z",
+      "sourceType": "reddit",
+      "category": "DIPLOMATIC",
+      "priority": "MED",
+      "location": {
+        "lat": 31.0461,
+        "lng": 34.8516,
+        "name": "Israel"
+      },
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rt3swl",
+      "title": "Israel’s Deadly Blockade Traps 7 U.S. Doctors in Gaza",
+      "source": "r/MiddleEastNews",
+      "link": "https://theintercept.com/2026/03/13/israel-blockade-gaza-iran-war-doctors/",
+      "published": "2026-03-13T23:46:08.000Z",
+      "sourceType": "reddit",
+      "category": "CONFLICT",
+      "priority": "MED",
+      "location": {
+        "lat": 31.5017,
+        "lng": 34.4668,
+        "name": "Gaza"
+      },
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rt376b",
+      "title": "US attacks Iran's Kharg Island, Trump says",
+      "source": "r/MiddleEastNews",
+      "link": "https://www.reuters.com/world/middle-east/us-attacks-irans-kharg-island-trump-says-2026-03-13/",
+      "published": "2026-03-13T23:21:25.000Z",
+      "sourceType": "reddit",
+      "category": "CONFLICT",
+      "priority": "HIGH",
+      "location": {
+        "lat": 32.4279,
+        "lng": 53.688,
+        "name": "Iran"
+      },
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rt0dkb",
+      "title": "Cyprus aims for gas exports by 2028 as Mid East conflict heightens supply tensions",
+      "source": "r/MiddleEastNews",
+      "link": "https://www.reuters.com/business/energy/cyprus-aims-gas-exports-by-2028-mid-east-conflict-heightens-supply-tensions-2026-03-13/",
+      "published": "2026-03-13T21:29:31.000Z",
+      "sourceType": "reddit",
+      "category": "CONFLICT",
+      "priority": "MED",
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rsl7nb",
+      "title": "Tom Barrack: \"Lebanon is a failed state\"",
+      "source": "r/MiddleEastNews",
+      "link": "https://www.youtube.com/shorts/lSemClI32Dg",
+      "published": "2026-03-13T11:52:16.000Z",
+      "sourceType": "reddit",
+      "category": "CONFLICT",
+      "priority": "MED",
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rsirfy",
+      "title": "US Senator: Netanyahu Found 'President Stupid Enough' as Hormuz Stays Closed, Gas Prices Surge",
+      "source": "r/MiddleEastNews",
+      "link": "https://blocknow.com/hormuz-closed-iran-war-gas-prices-surge-senator-warns/",
+      "published": "2026-03-13T09:34:37.000Z",
+      "sourceType": "reddit",
+      "category": "CONFLICT",
+      "priority": "MED",
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rsgv9o",
+      "title": "By serving Israel's agenda, Trump betrayed Gulf allies | Soumaya Ghannou...",
+      "source": "r/MiddleEastNews",
+      "link": "https://youtube.com/watch?v=-sxwloO5Siw&amp;si=cFp6kVlfL-E3zqcm",
+      "published": "2026-03-13T07:34:18.000Z",
+      "sourceType": "reddit",
+      "category": "CONFLICT",
+      "priority": "MED",
+      "location": {
+        "lat": 31.0461,
+        "lng": 34.8516,
+        "name": "Israel"
+      },
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rsgp3k",
+      "title": "Who threatens the Arab world: Iran or the US and Israel?",
+      "source": "r/MiddleEastNews",
+      "link": "https://www.middleeasteye.net/opinion/who-threatens-arab-world-iran-or-us-and-israel",
+      "published": "2026-03-13T07:23:41.000Z",
+      "sourceType": "reddit",
+      "category": "CONFLICT",
+      "priority": "MED",
+      "location": {
+        "lat": 31.0461,
+        "lng": 34.8516,
+        "name": "Israel"
+      },
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rsfpbz",
+      "title": "How the Iran War Is Reshaping the Gulf States?",
+      "source": "r/MiddleEastNews",
+      "link": "https://www.menanuances.com/p/how-the-iran-war-is-reshaping-the",
+      "published": "2026-03-13T06:22:55.000Z",
+      "sourceType": "reddit",
+      "category": "CONFLICT",
+      "priority": "HIGH",
+      "location": {
+        "lat": 32.4279,
+        "lng": 53.688,
+        "name": "Iran"
+      },
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rryxfc",
+      "title": "Iran pays Lebanon parliament speaker $500,000 a month to maintain influence",
+      "source": "r/MiddleEastNews",
+      "link": "https://www.iranintl.com/en/202603124202",
+      "published": "2026-03-12T18:30:51.000Z",
+      "sourceType": "reddit",
+      "category": "CONFLICT",
+      "priority": "MED",
+      "location": {
+        "lat": 32.4279,
+        "lng": 53.688,
+        "name": "Iran"
+      },
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rrsd58",
+      "title": "Free real-time war news aggregator — Iran, Israel, United States",
+      "source": "r/MiddleEastNews",
+      "link": "http://warnewswire.com",
+      "published": "2026-03-12T14:32:48.000Z",
+      "sourceType": "reddit",
+      "category": "CONFLICT",
+      "priority": "HIGH",
+      "location": {
+        "lat": 31.0461,
+        "lng": 34.8516,
+        "name": "Israel"
+      },
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rrre3v",
+      "title": "Dismay as ancient heritage sites across Iran damaged in US-Israel bombing",
+      "source": "r/MiddleEastNews",
+      "link": "https://www.theguardian.com/world/2026/mar/12/dismay-as-ancient-heritage-sites-across-iran-damaged-in-us-israel-bombing?CMP%3DShare_iOSApp_Other",
+      "published": "2026-03-12T13:54:53.000Z",
+      "sourceType": "reddit",
+      "category": "CONFLICT",
+      "priority": "MED",
+      "location": {
+        "lat": 31.0461,
+        "lng": 34.8516,
+        "name": "Israel"
+      },
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rrmt7q",
+      "title": "1/There is a $420 million solution to Hezbollah — one that would also hurt Iran. The Israeli government prefers the $31 billion one. Every time. 🧵",
+      "source": "r/MiddleEastNews",
+      "link": "https://x.com/TzviGot/status/2032032702598107355?s=20",
+      "published": "2026-03-12T10:13:29.000Z",
+      "sourceType": "reddit",
+      "category": "PROXY",
+      "priority": "MED",
+      "location": {
+        "lat": 31.0461,
+        "lng": 34.8516,
+        "name": "Israel"
+      },
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rrmskr",
+      "title": "Datacenters are becoming a target in warfare for the first time",
+      "source": "r/MiddleEastNews",
+      "link": "https://www.theguardian.com/technology/2026/mar/10/datacenters-target-warfare-iran",
+      "published": "2026-03-12T10:12:26.000Z",
+      "sourceType": "reddit",
+      "category": "CONFLICT",
+      "priority": "HIGH",
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rrlsxi",
+      "title": "EU to provide 100 mln euros in humanitarian aid to Lebanon, von der Leyen says",
+      "source": "r/MiddleEastNews",
+      "link": "https://www.reuters.com/world/middle-east/eu-provide-100-mln-euros-humanitarian-aid-lebanon-von-der-leyen-says-2026-03-11/",
+      "published": "2026-03-12T09:11:57.000Z",
+      "sourceType": "reddit",
+      "category": "CONFLICT",
+      "priority": "MED",
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rre5h1",
+      "title": "[DIPLOMACY][RETRO] BIMSTEC Statement on Humanitarian Crisis in Myanmar; 23nd June 2028",
+      "source": "r/GlobalPowers",
+      "link": "https://www.reddit.com/r/GlobalPowers/comments/1rre5h1/diplomacyretro_bimstec_statement_on_humanitarian/",
+      "published": "2026-03-12T02:10:21.000Z",
+      "sourceType": "reddit",
+      "category": "CONFLICT",
+      "priority": "MED",
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rrcv8r",
+      "title": "[EVENT][RETRO] MEA Statement on the Situation in Myanmar",
+      "source": "r/GlobalPowers",
+      "link": "https://www.reddit.com/r/GlobalPowers/comments/1rrcv8r/eventretro_mea_statement_on_the_situation_in/",
+      "published": "2026-03-12T01:14:34.000Z",
+      "sourceType": "reddit",
+      "category": "CONFLICT",
+      "priority": "MED",
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rqubmx",
+      "title": "[EVENT] Serbian Investments Into Drone Production",
+      "source": "r/GlobalPowers",
+      "link": "https://www.reddit.com/r/GlobalPowers/comments/1rqubmx/event_serbian_investments_into_drone_production/",
+      "published": "2026-03-11T13:51:37.000Z",
+      "sourceType": "reddit",
+      "category": "MILITARY",
+      "priority": "MED",
+      "corroborated": false
+    },
+    {
+      "id": "reddit-1rq0xnn",
+      "title": "[BATTLE] A New Phase In Myanmar’s Civil War",
+      "source": "r/GlobalPowers",
+      "link": "https://www.reddit.com/r/GlobalPowers/comments/1rq0xnn/battle_a_new_phase_in_myanmars_civil_war/",
+      "published": "2026-03-10T16:03:21.000Z",
+      "sourceType": "reddit",
+      "category": "CONFLICT",
+      "priority": "HIGH",
+      "corroborated": false
+    }
+  ],
+  "prices": {
+    "btc": {
+      "price": 70205,
+      "change24h": -5.060707593560036
+    },
+    "eth": {
+      "price": 2167.38,
+      "change24h": -6.6189931450721495
+    },
+    "sol": {
+      "price": 89.5,
+      "change24h": -4.745876774072028
+    },
+    "gold": {
+      "price": 0,
+      "change24h": 0
+    },
+    "silver": {
+      "price": 24.5,
+      "change24h": 1.2
+    },
+    "oil": {
+      "price": 0,
+      "change24h": 0
+    },
+    "gas": {
+      "price": 0,
+      "change24h": 0
+    },
+    "SP500": {
+      "price": 0,
+      "change24h": 0
+    },
+    "DXY": {
+      "price": 0,
+      "change24h": 0
+    }
+  },
+  "celestrak": {
+    "activeSatellites": 0,
+    "recentLaunches": 0,
+    "timestamp": "2026-03-19T08:01:53.293Z"
+  },
+  "delta": {
+    "flash": [],
+    "priority": [],
+    "routine": [],
+    "totalNew": 0,
+    "sweepNumber": 1
+  },
+  "lastSweep": "2026-03-19T08:01:53.833Z",
+  "sourceStatus": {
+    "gdelt": {
+      "ok": true,
+      "count": 0
+    },
+    "reddit": {
+      "ok": true,
+      "count": 94
+    },
+    "rss": {
+      "ok": true,
+      "count": 79
+    },
+    "opensky": {
+      "ok": true,
+      "count": 4
+    },
+    "noaa": {
+      "ok": true,
+      "count": 0
+    },
+    "firms": {
+      "ok": true,
+      "count": 0
+    },
+    "coingecko": {
+      "ok": true,
+      "count": 1
+    },
+    "yahoo": {
+      "ok": true,
+      "count": 1
+    },
+    "fred": {
+      "ok": true,
+      "count": 1
+    },
+    "eia": {
+      "ok": true,
+      "count": 0
+    },
+    "celestrak": {
+      "ok": true,
+      "count": 1
+    }
+  }
+}
