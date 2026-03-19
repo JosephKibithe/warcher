@@ -95,7 +95,7 @@ export function SitRep({ articles }: SitRepProps) {
           role: "assistant",
           content: aiReady
             ? "WARCHER AI online. I have access to the current intelligence feed. Ask me about ongoing conflicts, military operations, escalation risks, or request analysis on specific developments."
-            : "⚠️ COMMS OFFLINE: No OpenRouter API key detected. Add VITE_OPENROUTER_API_KEY to your .env.local file to enable AI analysis.",
+            : "⚠️ COMMS OFFLINE: No Gemini API key detected. Add VITE_GEMINI_API_KEY to your .env.local file to enable AI analysis.",
           timestamp: new Date(),
         },
       ]);
@@ -392,7 +392,7 @@ export function SitRep({ articles }: SitRepProps) {
               </button>
             </div>
             <p className="text-[9px] text-gray-600 mt-1.5 text-center">
-              Powered by OpenRouter · War & conflict analysis only
+              Powered by Google Gemini · War & conflict analysis only
             </p>
           </div>
         </div>

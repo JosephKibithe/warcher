@@ -1,10 +1,11 @@
+import { GoogleGenAI } from "@google/genai";
+import type { Content } from "@google/genai";
 import type { Article } from "./api";
 
 export const FREE_MODELS = [
-  { id: "google/gemini-2.5-pro-exp-03-25:free", name: "Gemini 2.5 Pro Exp" },
-  { id: "meta-llama/llama-3.3-70b-instruct:free", name: "Llama 3.3 70B" },
-  { id: "deepseek/deepseek-r1:free", name: "DeepSeek R1" },
-  { id: "mistralai/mistral-7b-instruct:free", name: "Mistral 7B" },
+  { id: "gemini-2.5-flash", name: "Gemini 2.5 Flash" },
+  { id: "gemini-2.0-flash", name: "Gemini 2.0 Flash" },
+  { id: "gemini-3-flash-preview", name: "Gemini 3 Flash (Preview)" },
 ];
 
 export const DEFAULT_MODEL = FREE_MODELS[0].id;
@@ -25,7 +26,7 @@ STYLE:
 
 BOUNDARIES:
 - ONLY discuss war, conflict, geopolitics, defense, security, military affairs, humanitarian crises in conflict zones, and related OSINT topics
-- If asked about unrelated topics, firmly but professionally redirect: "That falls outside my area of operations. I'm configured for conflict monitoring and geopolitical analysis. What would you like to know about current security developments?"
+- If asked about unrelated topics, firmly but professionally redirect: "That falls outside my area of operations. I'm configured for conflict monitoring and geopolitical analysis."
 - Never provide instructions for violence or illegal activities
 - Present analysis objectively without political bias`;
 
@@ -49,66 +50,55 @@ Structure the response EXACTLY like this (use markdown):
 Here are the articles:
 `;
 
-let chatHistory: { role: string; content: string }[] = [];
+let chatHistory: Content[] = [];
 
 export function isOpenRouterConfigured(): boolean {
-  return !!import.meta.env.VITE_OPENROUTER_API_KEY;
+  return !!import.meta.env.VITE_GEMINI_API_KEY;
 }
 
 export function resetChat(): void {
   chatHistory = [];
 }
 
-async function callOpenRouterAPI(messages: { role: string; content: string }[], model: string) {
-  const apiKey = import.meta.env.VITE_OPENROUTER_API_KEY;
+function getGeminiClient() {
+  const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
   if (!apiKey) {
-    throw new Error("COMMS ERROR: OpenRouter API key not configured. Add VITE_OPENROUTER_API_KEY to your .env.local file to enable AI analysis.");
+    throw new Error(
+      "COMMS ERROR: Gemini API key not configured. Add VITE_GEMINI_API_KEY to your .env.local file to enable AI analysis."
+    );
   }
 
-  const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${apiKey}`,
-      "HTTP-Referer": window.location.origin || "http://localhost:8081",
-      "X-OpenRouter-Title": "WARCHER",
-    },
-    body: JSON.stringify({
-      messages,
-      model,
-      stream: false,
-      temperature: 0.7,
-    }),
+  return new GoogleGenAI({ 
+    apiKey,
+    apiVersion: 'v1'
   });
-
-  if (!response.ok) {
-    const errorData = await response.json().catch(() => ({}));
-    throw new Error(errorData.error?.message || `API Error: ${response.status}`);
-  }
-
-  const data = await response.json();
-  return data.choices[0].message.content;
 }
 
-export async function generateAISitRep(articles: Article[], model: string = DEFAULT_MODEL): Promise<string> {
+export async function generateAISitRep(
+  articles: Article[],
+  modelId: string = DEFAULT_MODEL
+): Promise<string> {
   const articleContext = articles
     .slice(0, 15)
     .map(
       (a, i) =>
-        `[${i + 1}] ${a.title} (${a.source}, ${a.category}, Priority: ${a.priority})`,
+        `[${i + 1}] ${a.title} (${a.source}, ${a.category}, Priority: ${a.priority})`
     )
     .join("\n");
 
   const prompt = `${SITREP_PROMPT}\n${articleContext}`;
 
   try {
-    const response = await callOpenRouterAPI([
-      { role: "system", content: SYSTEM_PROMPT },
-      { role: "user", content: prompt },
-    ], model);
-    return response;
+    const ai = getGeminiClient();
+    const response = await ai.models.generateContent({
+      model: modelId,
+      systemInstruction: SYSTEM_PROMPT,
+      contents: [{ role: 'user', parts: [{ text: prompt }] }],
+    });
+    
+    return response.text || "COMMS ERROR: Empty response from AI.";
   } catch (error: unknown) {
-    console.error("OpenRouter API error:", error);
+    console.error("Gemini API error:", error);
     const errMsg = error instanceof Error ? error.message : "Unknown error";
     return `COMMS ERROR: Failed to generate SITREP. ${errMsg}`;
   }
@@ -117,44 +107,49 @@ export async function generateAISitRep(articles: Article[], model: string = DEFA
 export async function chatWithSitrep(
   message: string,
   articles: Article[],
-  model: string = DEFAULT_MODEL
+  modelId: string = DEFAULT_MODEL
 ): Promise<string> {
-  // Build context from current articles
   const articleContext = articles
     .slice(0, 10)
     .map(
       (a, i) =>
-        `[${i + 1}] ${a.title} (${a.source}, ${a.category}, Priority: ${a.priority})`,
+        `[${i + 1}] ${a.title} (${a.source}, ${a.category}, Priority: ${a.priority})`
     )
     .join("\n");
 
   const contextMessage = `CURRENT INTELLIGENCE FEED (${articles.length} total articles):\n${articleContext}\n\nANALYST QUERY: ${message}`;
 
   try {
-    // Add context to user's message
-    const currentMessage = { role: "user", content: contextMessage };
+    const ai = getGeminiClient();
     
-    // Call API with history
-    const responseText = await callOpenRouterAPI([
-      { role: "system", content: SYSTEM_PROMPT },
+    // Add current message to context
+    const currentContents: Content[] = [
       ...chatHistory,
-      currentMessage,
-    ], model);
+      { role: 'user', parts: [{ text: contextMessage }] }
+    ];
 
-    // Update chat history with just the original message (without the huge context) to save tokens
+    const response = await ai.models.generateContent({
+      model: modelId,
+      systemInstruction: SYSTEM_PROMPT,
+      contents: currentContents,
+    });
+
+    const responseText = response.text || "COMMS ERROR: Empty response from AI.";
+
+    // Update history
     chatHistory.push(
-      { role: "user", content: message },
-      { role: "assistant", content: responseText },
+      { role: 'user', parts: [{ text: message }] },
+      { role: 'model', parts: [{ text: responseText }] }
     );
 
     // Keep history manageable
     if (chatHistory.length > 20) {
-      chatHistory = chatHistory.slice(-16);
+      chatHistory = chatHistory.slice(-20);
     }
 
     return responseText;
   } catch (error: unknown) {
-    console.error("OpenRouter API error:", error);
+    console.error("Gemini API error:", error);
     const errMsg = error instanceof Error ? error.message : "Unknown error";
     return `COMMS ERROR: ${errMsg}`;
   }

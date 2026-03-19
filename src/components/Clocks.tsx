@@ -44,15 +44,15 @@ export function Clocks() {
   }, [])
 
   return (
-    <div className="glass rounded-lg overflow-hidden">
-      <div className="flex items-center gap-2 p-3 border-b border-gray-800 bg-[#0f0f14]">
+    <div className="glass rounded-lg flex flex-col max-h-[320px]">
+      <div className="flex items-center gap-2 p-3 border-b border-gray-800 bg-[#0f0f14] flex-shrink-0">
         <Globe className="w-4 h-4 text-cyan-500" />
         <h2 className="text-sm font-bold tracking-wider text-cyan-400">
           GLOBAL CLOCKS
         </h2>
       </div>
 
-      <div className="p-4">
+      <div className="p-4 overflow-y-auto flex-1">
         <div className="grid grid-cols-2 gap-3">
           {TIMEZONES.map((tz) => (
             <div

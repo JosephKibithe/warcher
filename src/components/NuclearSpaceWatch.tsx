@@ -133,7 +133,7 @@ export function NuclearSpaceWatch({ articles }: NuclearSpaceWatchProps) {
         </div>
       </div>
 
-      <div className="p-3 space-y-3">
+      <div className="p-3 space-y-3 overflow-y-auto max-h-[340px]">
         {/* Gauges Row */}
         <div className="flex justify-around items-end py-2">
           <RadialGauge
